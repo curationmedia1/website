@@ -242,7 +242,7 @@ body::before {
   line-height: 1;
   margin-bottom: 20px;
 }
-.footer__logo em { font-style: normal; color: var(--green); }
+.footer__logo em { font-style: italic; color: var(--green); }
 .footer__tag {
   font-family: var(--serif);
   font-style: normal;
