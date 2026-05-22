@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About — Curation Media</title>
+<meta name="description" content="The story of Curation Media — from Duration Media's real-time intelligence to a new supply-side platform built for the green media economy." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@300;400;500&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+
+<style>
+/* ============ MANIFESTO ============ */
+.manifesto {
+  padding: 120px 36px;
+  border-bottom: 1px solid var(--line);
+}
+.manifesto__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.manifesto__kicker {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-bottom: 48px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.manifesto__kicker::before {
+  content: '';
+  width: 24px; height: 1px;
+  background: var(--ink);
+}
+.manifesto__text {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(28px, 3.4vw, 48px);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  max-width: 1100px;
+}
+.manifesto__text em {
+  font-style: italic;
+  color: var(--green-deep);
+}
+.manifesto__text .strike {
+  text-decoration: line-through;
+  text-decoration-color: var(--rust);
+  text-decoration-thickness: 2px;
+  color: var(--muted);
+}
+.manifesto__text .mark {
+  background: linear-gradient(180deg, transparent 60%, rgba(45,190,108,0.3) 60%);
+  padding: 0 4px;
+}
+
+/* ============ TIMELINE LONG ============ */
+.history {
+  padding: 140px 36px;
+  border-bottom: 1px solid var(--line);
+  background: var(--paper-2);
+}
+.history__list {
+  border-top: 1px solid var(--line-strong);
+  margin-top: 64px;
+}
+.history__item {
+  display: grid;
+  grid-template-columns: 200px 1fr 1.4fr;
+  gap: 48px;
+  padding: 48px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: start;
+}
+.history__year {
+  font-family: var(--mono);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--green-deep);
+  padding-top: 8px;
+  position: relative;
+}
+.history__year::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -36px;
+  width: 9px; height: 9px;
+  background: var(--green);
+  border-radius: 50%;
+}
+.history__title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.history__title em { font-style: italic; }
+.history__body {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: 540px;
+}
+
+/* ============ PRINCIPLES ============ */
+.principles {
+  padding: 140px 36px;
+  border-bottom: 1px solid var(--line);
+}
+.principles__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line-strong);
+}
+.principle {
+  padding: 48px 32px 48px 0;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.principle:nth-child(even) { padding-left: 32px; border-right: none; }
+.principle__n {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.principle__n .badge {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 18px;
+  color: var(--green-deep);
+}
+.principle__title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+.principle__title em { font-style: italic; color: var(--green-deep); }
+.principle__body {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: 480px;
+}
+
+/* ============ LEADER ============ */
+.leader {
+  padding: 140px 36px;
+  border-bottom: 1px solid var(--line);
+  background: var(--ink);
+  color: var(--paper);
+}
+.leader .section__num,
+.leader .section__kicker,
+.leader .section__intro { color: rgba(244,240,232,0.55); }
+.leader .section__title { color: var(--paper); }
+.leader .section__title em { color: var(--green); }
+
+.leader__card {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 80px;
+  align-items: center;
+  margin-top: 64px;
+  padding: 56px;
+  border: 1px solid rgba(244,240,232,0.18);
+  background: rgba(244,240,232,0.03);
+}
+.leader__avatar {
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, var(--green) 0%, var(--green-deep) 100%);
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.leader__avatar::before {
+  content: 'AB';
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 140px;
+  color: var(--paper);
+  letter-spacing: -0.06em;
+}
+.leader__avatar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(45deg, transparent 0, transparent 40px, rgba(255,255,255,0.04) 40px, rgba(255,255,255,0.04) 41px);
+}
+.leader__name {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 56px;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.leader__role {
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--green);
+  margin-bottom: 28px;
+}
+.leader__bio {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(244,240,232,0.7);
+  margin-bottom: 28px;
+}
+.leader__links {
+  display: flex;
+  gap: 24px;
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+.leader__links a {
+  color: var(--paper);
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(244,240,232,0.3);
+  transition: border-color .2s, color .2s;
+}
+.leader__links a:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+/* ============ STANDARDS ============ */
+.standards {
+  padding: 140px 36px;
+  border-bottom: 1px solid var(--line);
+}
+.standards__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 64px;
+}
+.standard {
+  border: 1px solid var(--line);
+  padding: 36px;
+  background: var(--paper-2);
+  position: relative;
+}
+.standard__tag {
+  position: absolute;
+  top: -12px; left: 24px;
+  background: var(--paper);
+  padding: 4px 12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  border: 1px solid var(--line);
+  text-transform: uppercase;
+}
+.standard h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin-bottom: 16px;
+}
+.standard h3 em { font-style: italic; color: var(--green-deep); }
+.standard p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+@media (max-width: 980px) {
+  .manifesto, .history, .principles, .leader, .standards { padding: 80px 20px; }
+  .history__item { grid-template-columns: 1fr; gap: 16px; padding: 32px 0; }
+  .history__year::before { left: -16px; }
+  .principles__grid { grid-template-columns: 1fr; }
+  .principle { border-right: none; padding: 32px 0; }
+  .principle:nth-child(even) { padding-left: 0; }
+  .leader__card { grid-template-columns: 1fr; padding: 32px; gap: 32px; }
+  .leader__avatar::before { font-size: 80px; }
+  .leader__name { font-size: 36px; }
+  .standards__grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav__logo">Curation <span>Media</span></a>
+  <ul class="nav__menu">
+    <li><a href="advertisers.html">Advertisers</a></li>
+    <li><a href="publishers.html">Publishers</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="patent.html">Patent</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a class="nav__cta" href="contact.html">
+    <span class="dot"></span>
+    Talk to us
+  </a>
+</nav>
+
+<!-- PAGE HEAD -->
+<header class="page-head">
+  <div class="page-head__crumb">
+    <a href="index.html">Home</a>
+    <span class="sep">/</span>
+    <span class="current">About</span>
+  </div>
+
+  <h1 class="page-head__title">
+    Built by people who think <em>ad-tech</em><br/>
+    deserves <span class="underline">a higher standard.</span>
+  </h1>
+
+  <div class="page-head__row">
+    <p class="page-head__lede">
+      Curation Media is the next chapter of Duration Media — a seven-year journey from real-time viewability intelligence to a full-stack curated SSP. Built bootstrapped. Built for performance. Built to last.
+    </p>
+  </div>
+</header>
+
+<!-- MANIFESTO -->
+<section class="manifesto">
+  <div class="manifesto__inner">
+    <div class="manifesto__kicker">Manifesto</div>
+    <p class="manifesto__text">
+      The digital advertising supply chain has been <span class="strike">optimized for volume</span> for too long. We believe the next decade belongs to <em>curation</em> — to inventory that is <span class="mark">measurably viewable</span>, demonstrably attentive, and accountable to global standards for <em>sustainability</em>. Quality is the only metric that compounds.
+    </p>
+  </div>
+</section>
+
+<!-- HISTORY -->
+<section class="history">
+  <div class="section__header">
+    <div class="section__num">01 / HISTORY</div>
+    <h2 class="section__title">Seven years of <em>quiet engineering</em>. One new SSP.</h2>
+    <p class="section__intro">
+      We didn't show up to ad-tech to ride a trend. We built the underlying technology first — then waited for the market to catch up to what we already knew was possible.
+    </p>
+  </div>
+
+  <div class="history__list" style="padding-left: 36px;">
+    <div class="history__item">
+      <div class="history__year">2017 / Founded</div>
+      <h3 class="history__title">Duration Media is <em>founded</em>.</h3>
+      <p class="history__body">
+        With a hypothesis: a viewable impression is worth more than a delivered one, and there's no reason buyers should pay the same for both. Real-time intelligence becomes the foundation.
+      </p>
+    </div>
+    <div class="history__item">
+      <div class="history__year">2018 — 2020 / VaaS®</div>
+      <h3 class="history__title">VaaS® is built and <em>patented</em>.</h3>
+      <p class="history__body">
+        Viewability-as-a-Service® launches with publishers. Independent measurement by IAS and DoubleVerify validates 90 %+ viewability — a number the open exchange still hasn't matched.
+      </p>
+    </div>
+    <div class="history__item">
+      <div class="history__year">2021 — 2023 / Attention</div>
+      <h3 class="history__title">The shift to <em>attention</em> metrics.</h3>
+      <p class="history__body">
+        The industry begins measuring attention with Lumen and Adelaide. Duration Media's inventory is verified to outperform the open exchange baseline — independently, repeatably.
+      </p>
+    </div>
+    <div class="history__item">
+      <div class="history__year">2024 / Pivot</div>
+      <h3 class="history__title">The market moves toward <em>direct supply</em>.</h3>
+      <p class="history__body">
+        Buyers begin actively demanding a shorter, cleaner path to premium inventory — without duplication, reselling, or intermediaries. Our seven-year tech stack is suddenly the right answer.
+      </p>
+    </div>
+    <div class="history__item">
+      <div class="history__year">2025 / Curation Media</div>
+      <h3 class="history__title">Launch of the <em>Curation Media SSP</em>.</h3>
+      <p class="history__body">
+        Refresh Detect™ goes to market. The SSP launches. Buyers reach unique, curated inventory through a single bid request. Publishers earn incremental, performance-aligned revenue. The full thesis ships.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- PRINCIPLES -->
+<section class="principles">
+  <div class="section__header">
+    <div class="section__num">02 / PRINCIPLES</div>
+    <h2 class="section__title">Four principles that <em>govern</em> every decision.</h2>
+    <p class="section__intro">
+      We're a bootstrapped company. That means we don't take swings we don't believe in — and we don't optimize for anything except the long-term durability of the relationships we build with publishers and advertisers.
+    </p>
+  </div>
+
+  <div class="principles__grid">
+    <div class="principle">
+      <div class="principle__n"><span>01 / Principle</span><span class="badge">Quality</span></div>
+      <h3 class="principle__title">Quality is the <em>only</em> compounding metric.</h3>
+      <p class="principle__body">
+        Volume gets re-baselined every quarter. Quality — measured by viewability, attention, and outcomes — accrues into brand equity for the buyer and pricing power for the publisher.
+      </p>
+    </div>
+    <div class="principle">
+      <div class="principle__n"><span>02 / Principle</span><span class="badge">Direct</span></div>
+      <h3 class="principle__title">Every intermediary is <em>a tax</em> on quality.</h3>
+      <p class="principle__body">
+        Each reseller hop adds latency, takes margin, and obscures attribution. We removed them. Buyers reach our inventory through a single bid request — full stop.
+      </p>
+    </div>
+    <div class="principle">
+      <div class="principle__n"><span>03 / Principle</span><span class="badge">Measured</span></div>
+      <h3 class="principle__title">If you can't <em>measure</em> it, we don't claim it.</h3>
+      <p class="principle__body">
+        Every metric we publish is verifiable by partners you already trust — IAS, DoubleVerify, Lumen, Adelaide. No proprietary black boxes. No "trust us."
+      </p>
+    </div>
+    <div class="principle">
+      <div class="principle__n"><span>04 / Principle</span><span class="badge">Aligned</span></div>
+      <h3 class="principle__title">Sustainability is a <em>technical</em> commitment.</h3>
+      <p class="principle__body">
+        We don't sticker our pitch deck with "green." We align to the Ad Net Zero Global Media Sustainability Framework and IAB Tech Lab standards — and we publish the math.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- LEADER -->
+<section class="leader">
+  <div class="section__header">
+    <div class="section__num">03 / LEADERSHIP</div>
+    <h2 class="section__title">Bootstrapped. Operator-led. <em>Long-term oriented.</em></h2>
+    <p class="section__intro">
+      Curation Media is led by operators who've built and shipped ad-tech that survived market cycles — not by people optimizing for the next funding round.
+    </p>
+  </div>
+
+  <div class="leader__card">
+    <div class="leader__avatar"></div>
+    <div>
+      <div class="leader__role">Co-founder &amp; CRO</div>
+      <h3 class="leader__name">Andy Batkin</h3>
+      <p class="leader__bio">
+        Co-founder and Chief Revenue Officer of Curation Media. Operator-led, bootstrapped, focused on growing the business through long-term relationships with publishers and advertisers — not transactional revenue.
+      </p>
+      <p class="leader__bio">
+        Seven-plus years building Duration Media's real-time viewability and attention technology. Today, leading commercial strategy for the next-generation curated SSP.
+      </p>
+      <div class="leader__links">
+        <a href="https://www.linkedin.com/in/andybatkin" target="_blank">LinkedIn ↗</a>
+        <a href="mailto:abatkin@durationmedia.net">abatkin@durationmedia.net ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STANDARDS -->
+<section class="standards">
+  <div class="section__header">
+    <div class="section__num">04 / STANDARDS</div>
+    <h2 class="section__title">The bodies whose <em>standards</em> we align to.</h2>
+    <p class="section__intro">
+      Curation Media isn't a closed system. Every metric, every methodology, every claim is anchored to standards published by independent industry bodies.
+    </p>
+  </div>
+
+  <div class="standards__grid">
+    <div class="standard">
+      <span class="standard__tag">Sustainability</span>
+      <h3><em>Ad Net Zero</em> Global Media Sustainability Framework</h3>
+      <p>Aligned to the GMSF for measurable, transparent, accountable reduction of carbon emissions in media. Every impression is reported under this methodology.</p>
+    </div>
+    <div class="standard">
+      <span class="standard__tag">Technical</span>
+      <h3><em>IAB Tech Lab</em> standards</h3>
+      <p>Built on OpenRTB and the IAB Tech Lab's specifications for supply path optimization, ads.txt, sellers.json, and brand safety floors.</p>
+    </div>
+    <div class="standard">
+      <span class="standard__tag">Verification</span>
+      <h3><em>Independent</em> measurement</h3>
+      <p>Viewability via IAS and DoubleVerify. Attention via Lumen and Adelaide. We don't measure ourselves — we publish numbers that buyers can verify with their own contracts.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-strip">
+  <div class="cta-strip__kicker">Build with us</div>
+  <h2 class="cta-strip__title">
+    Whether you're a <em>publisher</em>, a <em>buyer</em>, or just curious — talk to us.
+  </h2>
+  <a href="contact.html" class="cta-strip__btn">
+    Start a conversation
+    <span class="arrow">→</span>
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__main">
+    <div>
+      <div class="footer__logo">Curation <em>Media</em></div>
+      <p class="footer__tag">Only quality ad inventory. Higher performance. Sustainable results.</p>
+      <a class="nav__cta" href="contact.html" style="background: var(--green); color: var(--ink);">
+        Start a conversation →
+      </a>
+    </div>
+    <div class="footer__col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="advertisers.html">For Advertisers</a></li>
+        <li><a href="publishers.html">For Publishers</a></li>
+        <li><a href="publishers.html">Refresh Detect™</a></li>
+        <li><a href="advertisers.html">VaaS® Platform</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="patent.html">Patent</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="privacy-policy.html">Privacy policy</a></li>
+        <li><a href="terms.html">Terms of service</a></li>
+        <li><a href="patent.html">Patent information</a></li>
+        <li><a href="#">Ad Net Zero</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2025 Curation Media SSP — All rights reserved.</span>
+    <div class="social">
+      <a href="https://www.linkedin.com/in/andybatkin" target="_blank">LinkedIn</a>
+      <a href="https://x.com/durationmedia" target="_blank">X</a>
+      <a href="#">Facebook</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

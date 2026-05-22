@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Terms of Service — Curation Media</title>
+<meta name="description" content="Terms of Service governing the use of Curation Media's website, platform, and advertising technology services." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@300;400;500&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+
+<style>
+/* Reuse legal doc styles from privacy-policy */
+.doc {
+  padding: 100px 36px;
+  border-bottom: 1px solid var(--line);
+}
+.doc__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.doc__side {
+  position: sticky;
+  top: 100px;
+  font-family: var(--mono);
+  font-size: 11px;
+}
+.doc__side__label {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line-strong);
+}
+.doc__side__list { list-style: none; }
+.doc__side__list li { padding: 10px 0; }
+.doc__side__list a {
+  color: var(--ink);
+  text-decoration: none;
+  display: block;
+  letter-spacing: 0.04em;
+  transition: color .2s;
+  line-height: 1.4;
+}
+.doc__side__list a:hover { color: var(--green-deep); }
+.doc__side__list .n { color: var(--muted); margin-right: 12px; }
+
+.doc__side__meta {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line-strong);
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.doc__side__meta .row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+}
+.doc__side__meta .row .l { text-transform: uppercase; letter-spacing: 0.1em; }
+.doc__side__meta .row .v { color: var(--ink); font-style: italic; font-family: var(--serif); }
+
+.doc__body { max-width: 760px; }
+.doc__body h2 {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 40px;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin: 64px 0 20px;
+  scroll-margin-top: 120px;
+}
+.doc__body h2:first-child { margin-top: 0; }
+.doc__body h2 em { font-style: italic; color: var(--green-deep); }
+.doc__body h3 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 24px;
+  letter-spacing: -0.01em;
+  margin: 32px 0 12px;
+  scroll-margin-top: 120px;
+}
+.doc__body p {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink);
+  margin-bottom: 18px;
+}
+.doc__body p.muted { color: var(--muted); font-size: 15px; }
+.doc__body a {
+  color: var(--green-deep);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.doc__body a:hover { color: var(--ink); }
+.doc__body strong {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.eff-date {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 24px;
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  margin-bottom: 40px;
+  font-family: var(--mono);
+  font-size: 12px;
+}
+.eff-date .pill {
+  background: var(--green);
+  color: var(--ink);
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 500;
+}
+.eff-date .v {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--ink);
+}
+
+.doc__body ul {
+  list-style: none;
+  margin: 16px 0 28px;
+  padding: 0;
+}
+.doc__body ul li {
+  padding: 12px 0 12px 32px;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.doc__body ul li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 22px;
+  width: 16px; height: 1px;
+  background: var(--ink);
+}
+.doc__body ul li:last-child { border-bottom: none; }
+
+.callout {
+  margin: 32px 0;
+  padding: 28px 32px;
+  background: var(--ink);
+  color: var(--paper);
+  border-left: 4px solid var(--green);
+}
+.callout strong {
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 11px;
+  font-family: var(--mono);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 10px;
+}
+.callout p {
+  color: var(--paper);
+  font-size: 15px;
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+.callout.warn {
+  border-left-color: var(--rust);
+}
+.callout.warn strong { color: var(--rust); }
+
+/* Caps section — for ALL CAPS legal language */
+.caps {
+  font-family: var(--sans);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  font-size: 13px;
+  line-height: 1.7;
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  padding: 24px 28px;
+  margin: 24px 0;
+}
+
+.contact-card {
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  padding: 36px;
+  margin: 32px 0;
+}
+.contact-card h4 {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.contact-card .name {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 24px;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+.contact-card .addr {
+  font-size: 15px;
+  color: var(--ink);
+  line-height: 1.6;
+}
+.contact-card a { color: var(--green-deep); }
+
+@media (max-width: 980px) {
+  .doc { padding: 60px 20px; }
+  .doc__inner { grid-template-columns: 1fr; gap: 40px; }
+  .doc__side { position: static; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav__logo">Curation <span>Media</span></a>
+  <ul class="nav__menu">
+    <li><a href="advertisers.html">Advertisers</a></li>
+    <li><a href="publishers.html">Publishers</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="patent.html">Patent</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a class="nav__cta" href="contact.html">
+    <span class="dot"></span>
+    Talk to us
+  </a>
+</nav>
+
+<!-- PAGE HEAD -->
+<header class="page-head">
+  <div class="page-head__crumb">
+    <a href="index.html">Home</a>
+    <span class="sep">/</span>
+    <span class="current">Terms of Service</span>
+  </div>
+
+  <h1 class="page-head__title">
+    Terms of <em>Service</em>
+  </h1>
+
+  <div class="page-head__row">
+    <p class="page-head__lede">
+      These Terms of Service govern your access to and use of the Curation Media website, advertising platform, and related services. Please read them carefully — by using our services, you agree to these terms.
+    </p>
+  </div>
+</header>
+
+<!-- DOC -->
+<section class="doc">
+  <div class="doc__inner">
+
+    <aside class="doc__side">
+      <div class="doc__side__label">Contents</div>
+      <ul class="doc__side__list">
+        <li><a href="#agreement"><span class="n">01</span> Agreement to terms</a></li>
+        <li><a href="#definitions"><span class="n">02</span> Definitions</a></li>
+        <li><a href="#access"><span class="n">03</span> Access &amp; eligibility</a></li>
+        <li><a href="#account"><span class="n">04</span> Accounts &amp; security</a></li>
+        <li><a href="#license"><span class="n">05</span> License to use</a></li>
+        <li><a href="#publisher"><span class="n">06</span> Publisher obligations</a></li>
+        <li><a href="#advertiser"><span class="n">07</span> Advertiser obligations</a></li>
+        <li><a href="#prohibited"><span class="n">08</span> Prohibited uses</a></li>
+        <li><a href="#fees"><span class="n">09</span> Fees &amp; payment</a></li>
+        <li><a href="#ip"><span class="n">10</span> Intellectual property</a></li>
+        <li><a href="#privacy"><span class="n">11</span> Privacy &amp; data</a></li>
+        <li><a href="#third-party"><span class="n">12</span> Third-party services</a></li>
+        <li><a href="#warranties"><span class="n">13</span> Disclaimers</a></li>
+        <li><a href="#limitation"><span class="n">14</span> Limitation of liability</a></li>
+        <li><a href="#indemnification"><span class="n">15</span> Indemnification</a></li>
+        <li><a href="#termination"><span class="n">16</span> Termination</a></li>
+        <li><a href="#governing"><span class="n">17</span> Governing law</a></li>
+        <li><a href="#disputes"><span class="n">18</span> Dispute resolution</a></li>
+        <li><a href="#changes"><span class="n">19</span> Changes to these terms</a></li>
+        <li><a href="#contact"><span class="n">20</span> Contact</a></li>
+      </ul>
+
+      <div class="doc__side__meta">
+        <div class="row"><span class="l">Effective</span><span class="v">Jan 24, 2025</span></div>
+        <div class="row"><span class="l">Jurisdiction</span><span class="v">New York, USA</span></div>
+        <div class="row"><span class="l">Version</span><span class="v">1.0</span></div>
+      </div>
+    </aside>
+
+    <div class="doc__body">
+
+      <div class="eff-date">
+        <span class="pill">Effective</span>
+        <span class="v">January 24, 2025</span>
+      </div>
+
+      <div class="callout warn">
+        <strong>Please read carefully</strong>
+        <p>By accessing or using the Curation Media website, platform, or services, you agree to be bound by these Terms of Service. If you do not agree, do not use our services. These Terms include important provisions including disclaimers of warranties, limitations of liability, and dispute-resolution procedures.</p>
+      </div>
+
+      <h2 id="agreement">01 / Agreement to <em>terms</em></h2>
+      <p>
+        These Terms of Service ("<strong>Terms</strong>") constitute a legal agreement between you and <strong>Duration Media, Inc.</strong>, doing business as Curation Media ("<strong>Curation Media</strong>", "<strong>we</strong>", "<strong>us</strong>", or "<strong>our</strong>"), governing your access to and use of the website located at <a href="https://curationmedia.net">curationmedia.net</a> (the "<strong>Website</strong>"), our supply-side advertising platform (the "<strong>Platform</strong>"), and any related products or services we offer (collectively, the "<strong>Services</strong>").
+      </p>
+      <p>
+        By accessing or using the Services, you represent that you have read, understood, and agree to be bound by these Terms and our <a href="privacy-policy.html">Privacy Policy</a>, which is incorporated herein by reference. If you are using the Services on behalf of an entity, you represent that you have the authority to bind that entity to these Terms.
+      </p>
+
+      <h2 id="definitions">02 / <em>Definitions</em></h2>
+      <p>
+        For the purposes of these Terms, the following definitions apply:
+      </p>
+      <ul>
+        <li><strong>"Account"</strong> means any account created with Curation Media to access the Platform or Services.</li>
+        <li><strong>"Advertiser"</strong> means any entity using the Platform to purchase advertising inventory.</li>
+        <li><strong>"Content"</strong> means any text, data, creative assets, code, or other materials made available through the Services.</li>
+        <li><strong>"Inventory"</strong> means advertising impressions, placements, and related supply made available through the Platform.</li>
+        <li><strong>"Publisher"</strong> means any entity that makes advertising inventory available through the Platform.</li>
+        <li><strong>"User"</strong> means any person or entity accessing the Services, whether as a Publisher, Advertiser, partner, or vendor.</li>
+      </ul>
+
+      <h2 id="access">03 / Access &amp; <em>eligibility</em></h2>
+      <p>
+        The Services are intended for use by businesses and authorized representatives acting on behalf of businesses. By using the Services, you represent and warrant that:
+      </p>
+      <ul>
+        <li>You are at least 18 years of age and have the legal capacity to enter into binding contracts</li>
+        <li>You are not located in a country subject to a U.S. government embargo, or designated as a "terrorist supporting" country</li>
+        <li>You are not on any U.S. government list of prohibited or restricted parties</li>
+        <li>You will comply with all applicable laws and regulations in connection with your use of the Services</li>
+      </ul>
+
+      <h2 id="account">04 / Accounts &amp; <em>security</em></h2>
+      <p>
+        To access certain features of the Platform, you may be required to create an Account. You agree to provide accurate, current, and complete information during registration and to keep this information up to date.
+      </p>
+      <p>
+        You are responsible for safeguarding the credentials associated with your Account and for any activities or actions taken under your Account. You agree to notify Curation Media immediately of any unauthorized access to or use of your Account.
+      </p>
+      <p>
+        We reserve the right to suspend or terminate your Account at any time, with or without cause, and with or without notice, particularly in cases of suspected unauthorized access, fraud, or violation of these Terms.
+      </p>
+
+      <h2 id="license">05 / License to <em>use the services</em></h2>
+      <p>
+        Subject to your compliance with these Terms, Curation Media grants you a <strong>limited, non-exclusive, non-transferable, non-sublicensable, and revocable license</strong> to access and use the Services solely for your internal business purposes and in accordance with the documentation we provide.
+      </p>
+      <p>
+        This license does not include any right to:
+      </p>
+      <ul>
+        <li>Resell, sublicense, or distribute the Services to third parties</li>
+        <li>Modify, reverse-engineer, decompile, or attempt to derive the source code of the Platform</li>
+        <li>Use the Services to build a competing product or service</li>
+        <li>Use any data mining, robots, or similar data gathering or extraction methods</li>
+        <li>Circumvent any technical or security measures we implement</li>
+      </ul>
+
+      <h2 id="publisher">06 / Publisher <em>obligations</em></h2>
+      <p>
+        If you are a Publisher using the Platform, you agree that you:
+      </p>
+      <ul>
+        <li>Own or have all necessary rights to the inventory you make available through the Platform</li>
+        <li>Will accurately represent the nature, traffic, and audience of your properties</li>
+        <li>Will not engage in any form of ad fraud, including but not limited to bot traffic, hidden ads, ad stacking, or click fraud</li>
+        <li>Will comply with all applicable laws regarding the placement of advertising on your properties, including disclosure requirements</li>
+        <li>Will maintain a privacy policy that accurately describes the use of cookies, tracking technologies, and data collection through your properties</li>
+        <li>Will obtain all necessary user consents required by applicable law (including the GDPR, CCPA, and similar regulations)</li>
+        <li>Will not place Curation Media tags on content that is illegal, infringing, defamatory, or otherwise prohibited under Section 08 below</li>
+      </ul>
+
+      <h2 id="advertiser">07 / Advertiser <em>obligations</em></h2>
+      <p>
+        If you are an Advertiser using the Platform, you agree that you:
+      </p>
+      <ul>
+        <li>Own or have all necessary rights to the creative assets you submit to the Platform</li>
+        <li>Will ensure all advertising materials comply with applicable laws, regulations, and industry standards (including the IAB's standards)</li>
+        <li>Will not submit creative that is misleading, deceptive, illegal, or otherwise prohibited under Section 08 below</li>
+        <li>Will honor all bids placed through the Platform and pay all applicable fees in accordance with Section 09</li>
+        <li>Will not attempt to circumvent the Platform's bidding mechanisms or measurement systems</li>
+      </ul>
+
+      <h2 id="prohibited">08 / <em>Prohibited</em> uses</h2>
+      <p>
+        You agree not to use the Services, or to upload, transmit, or otherwise make available through the Services, any Content that:
+      </p>
+      <ul>
+        <li>Violates any applicable law, regulation, or third-party right</li>
+        <li>Infringes any patent, trademark, trade secret, copyright, or other intellectual property right</li>
+        <li>Is fraudulent, false, misleading, or deceptive</li>
+        <li>Is defamatory, obscene, pornographic, vulgar, or offensive</li>
+        <li>Promotes discrimination, bigotry, racism, hatred, harassment, or harm against any individual or group</li>
+        <li>Promotes illegal activities or harmful goods or services</li>
+        <li>Contains malware, viruses, or any code designed to harm or interfere with the operation of any computer system</li>
+        <li>Constitutes ad fraud, bot traffic, or any artificial inflation of metrics</li>
+        <li>Targets children under the age of 16 in violation of COPPA or similar laws</li>
+        <li>Collects, uses, or shares personal data in violation of applicable privacy laws</li>
+      </ul>
+
+      <h2 id="fees">09 / Fees &amp; <em>payment</em></h2>
+      <p>
+        Fees for the Services are governed by the commercial terms set forth in your applicable Insertion Order ("<strong>IO</strong>"), Master Services Agreement, or other written agreement with Curation Media. In the absence of a separate written agreement, the following terms apply:
+      </p>
+      <ul>
+        <li><strong>Refresh Detect™ for Publishers:</strong> Performance-based pricing applies. Publishers earn revenue based on incremental impressions delivered, less Curation Media's revenue share as agreed in the applicable IO.</li>
+        <li><strong>Curation Media SSP for Advertisers:</strong> Advertisers are billed for delivered impressions in accordance with bid prices and any applicable platform fees, on Net-30 payment terms unless otherwise agreed.</li>
+        <li><strong>Late payments:</strong> Past-due amounts may accrue interest at the lesser of 1.5% per month or the maximum rate permitted by law. We reserve the right to suspend Services for any past-due Account.</li>
+        <li><strong>Taxes:</strong> All fees are exclusive of applicable taxes. You are responsible for paying any sales, use, value-added, or similar taxes arising from your use of the Services.</li>
+      </ul>
+
+      <h2 id="ip">10 / Intellectual <em>property</em></h2>
+      <p>
+        The Services, including all underlying technology, software, designs, text, graphics, and other materials, are owned by Curation Media and its licensors and are protected by United States and international intellectual property laws. The Services are protected by issued and pending patents — see our <a href="patent.html">Patent Information</a> page for details.
+      </p>
+      <p>
+        The marks <strong>VaaS®</strong>, <strong>Viewability-as-a-Service®</strong>, <strong>Refresh Detect™</strong>, <strong>Curation Media</strong>, and <strong>Duration Media</strong> are trademarks owned by Curation Media or its affiliated entities. You may not use these marks without our prior written consent.
+      </p>
+      <p>
+        You retain all rights in any Content you submit through the Services. By submitting Content, you grant Curation Media a worldwide, non-exclusive, royalty-free license to use, host, store, reproduce, modify, and display that Content solely as necessary to provide the Services.
+      </p>
+
+      <h2 id="privacy">11 / Privacy &amp; <em>data protection</em></h2>
+      <p>
+        Our collection, use, and disclosure of personal information is governed by our <a href="privacy-policy.html">Privacy Policy</a>, which is incorporated into these Terms by reference. By using the Services, you consent to the collection and use of information as described in the Privacy Policy.
+      </p>
+      <p>
+        Publishers and Advertisers using the Platform agree to comply with all applicable data protection laws, including the General Data Protection Regulation ("<strong>GDPR</strong>"), the California Consumer Privacy Act ("<strong>CCPA</strong>"), and any similar laws applicable to their activities.
+      </p>
+
+      <h2 id="third-party">12 / Third-party <em>services</em></h2>
+      <p>
+        The Services may integrate with or link to third-party services, including (without limitation) demand-side platforms, verification partners such as IAS and DoubleVerify, attention measurement partners such as Lumen and Adelaide, and standards bodies such as IAB Tech Lab and Ad Net Zero.
+      </p>
+      <p>
+        Curation Media is not responsible for the availability, accuracy, or content of any third-party services, nor for any acts or omissions of third parties. Your use of third-party services is governed by the terms and policies of those third parties.
+      </p>
+
+      <h2 id="warranties">13 / Disclaimer of <em>warranties</em></h2>
+      <div class="caps">
+        The Services are provided "as is" and "as available" without warranties of any kind, either express or implied. To the maximum extent permitted by applicable law, Curation Media disclaims all warranties, including but not limited to implied warranties of merchantability, fitness for a particular purpose, non-infringement, and any warranties arising out of course of dealing or trade usage.
+      </div>
+      <p>
+        Without limiting the foregoing, Curation Media does not warrant that the Services will be uninterrupted, error-free, secure, or free of viruses or other harmful components. While we publish performance metrics and standards (such as 90 %+ viewability), all measurement is subject to independent verification by third-party partners. We do not guarantee any specific business outcome, return on investment, or revenue uplift, except as expressly stated in a separate written agreement.
+      </p>
+
+      <h2 id="limitation">14 / Limitation of <em>liability</em></h2>
+      <div class="caps">
+        To the maximum extent permitted by applicable law, in no event shall Curation Media, its affiliates, officers, directors, employees, or agents be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, revenue, data, goodwill, or other intangible losses, arising out of or relating to your use of or inability to use the services, even if Curation Media has been advised of the possibility of such damages.
+      </div>
+      <div class="caps">
+        In no event shall Curation Media's total aggregate liability arising out of or related to these terms or the services exceed the greater of (a) the total fees paid by you to Curation Media in the twelve (12) months preceding the event giving rise to the claim, or (b) one hundred U.S. dollars ($100).
+      </div>
+
+      <h2 id="indemnification">15 / <em>Indemnification</em></h2>
+      <p>
+        You agree to defend, indemnify, and hold harmless Curation Media, its affiliates, and their respective officers, directors, employees, agents, and licensors from and against any claims, liabilities, damages, losses, costs, and expenses (including reasonable attorneys' fees) arising out of or relating to:
+      </p>
+      <ul>
+        <li>Your use of or access to the Services</li>
+        <li>Your violation of these Terms</li>
+        <li>Your violation of any third-party right, including any intellectual property, privacy, or publicity right</li>
+        <li>Any Content you submit through the Services</li>
+        <li>Your violation of any applicable law or regulation</li>
+      </ul>
+      <p>
+        Curation Media reserves the right to assume the exclusive defense and control of any matter subject to indemnification by you, in which case you agree to cooperate with our defense.
+      </p>
+
+      <h2 id="termination">16 / <em>Termination</em></h2>
+      <p>
+        Either party may terminate these Terms at any time and for any reason, subject to any commitments in your applicable Insertion Order or Master Services Agreement. Curation Media may suspend or terminate your access to the Services immediately, without notice, if we believe in good faith that you have violated these Terms.
+      </p>
+      <p>
+        Upon termination, your right to use the Services will immediately cease. The following provisions will survive termination: <strong>Intellectual Property</strong>, <strong>Disclaimer of Warranties</strong>, <strong>Limitation of Liability</strong>, <strong>Indemnification</strong>, <strong>Governing Law</strong>, <strong>Dispute Resolution</strong>, and any payment obligations accrued prior to termination.
+      </p>
+
+      <h2 id="governing">17 / <em>Governing law</em></h2>
+      <p>
+        These Terms are governed by and construed in accordance with the laws of the <strong>State of New York</strong>, without regard to its conflict-of-law principles. Any legal action or proceeding arising under these Terms shall be brought exclusively in the federal or state courts located in New York County, New York, and you irrevocably consent to the personal jurisdiction of those courts.
+      </p>
+
+      <h2 id="disputes">18 / Dispute <em>resolution</em></h2>
+      <p>
+        In the event of any dispute arising out of or relating to these Terms or the Services, the parties agree to first attempt to resolve the dispute through good-faith negotiation. If the dispute cannot be resolved through negotiation within thirty (30) days, either party may submit the dispute to binding arbitration administered by the American Arbitration Association ("<strong>AAA</strong>") under its Commercial Arbitration Rules, with the arbitration to take place in New York, New York.
+      </p>
+      <div class="caps">
+        You agree that any dispute resolution proceedings will be conducted on an individual basis and not in a class, consolidated, or representative action. You waive any right to a jury trial.
+      </div>
+
+      <h2 id="changes">19 / Changes to <em>these terms</em></h2>
+      <p>
+        We may modify these Terms from time to time. When we make material changes, we will post the updated Terms on the Website and update the "Effective" date at the top of this page. We may also provide notice through email or in-Platform notifications.
+      </p>
+      <p>
+        Your continued use of the Services following any changes constitutes your acceptance of the revised Terms. If you do not agree to the revised Terms, you must stop using the Services.
+      </p>
+
+      <h2 id="contact">20 / Contact <em>us</em></h2>
+      <p>
+        Questions about these Terms should be directed to:
+      </p>
+
+      <div class="contact-card">
+        <h4>Duration Media, Inc.</h4>
+        <div class="name">Legal &amp; Contracts</div>
+        <div class="addr">
+          82 Nassau St #60692<br/>
+          New York, NY 10038<br/>
+          <a href="mailto:legal@durationmedia.net">legal@durationmedia.net</a>
+        </div>
+      </div>
+
+      <p class="muted">
+        For general inquiries unrelated to these Terms, please contact <a href="mailto:info@curationmedia.net">info@curationmedia.net</a>. For privacy-related inquiries, please contact <a href="mailto:privacy@Durationmedia.net">privacy@Durationmedia.net</a>.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__main">
+    <div>
+      <div class="footer__logo">Curation <em>Media</em></div>
+      <p class="footer__tag">Only quality ad inventory. Higher performance. Sustainable results.</p>
+      <a class="nav__cta" href="contact.html" style="background: var(--green); color: var(--ink);">
+        Start a conversation →
+      </a>
+    </div>
+    <div class="footer__col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="advertisers.html">For Advertisers</a></li>
+        <li><a href="publishers.html">For Publishers</a></li>
+        <li><a href="publishers.html">Refresh Detect™</a></li>
+        <li><a href="advertisers.html">VaaS® Platform</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="patent.html">Patent</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="privacy-policy.html">Privacy policy</a></li>
+        <li><a href="terms.html">Terms of service</a></li>
+        <li><a href="patent.html">Patent information</a></li>
+        <li><a href="#">Ad Net Zero</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2025 Curation Media SSP — All rights reserved.</span>
+    <div class="social">
+      <a href="https://www.linkedin.com/in/andybatkin" target="_blank">LinkedIn</a>
+      <a href="https://x.com/durationmedia" target="_blank">X</a>
+      <a href="#">Facebook</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
