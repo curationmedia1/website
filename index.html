@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Curation Media — The High-Performance SSP</title>
+<meta name="description" content="A new kind of supply-side platform. Curated, viewable, attentive, sustainable inventory for advertisers and incremental RPM for publishers." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@300;400;500&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --ink: #0E1410;
+  --paper: #F4F0E8;
+  --paper-2: #ECE6D8;
+  --green: #2DBE6C;
+  --green-deep: #0F5C36;
+  --rust: #C7491F;
+  --line: rgba(14, 20, 16, 0.14);
+  --line-strong: rgba(14, 20, 16, 0.45);
+  --muted: rgba(14, 20, 16, 0.62);
+  --serif: "Fraunces", "Times New Roman", serif;
+  --sans: "Inter Tight", -apple-system, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Grain overlay */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ============ NAV ============ */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 22px 36px;
+  background: rgba(244, 240, 232, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+.nav__logo {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  font-style: italic;
+}
+.nav__logo span { font-style: normal; font-weight: 500; }
+.nav__menu {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.nav__menu a {
+  color: var(--ink);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 4px;
+}
+.nav__menu a::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 0; height: 1px;
+  background: var(--ink);
+  transition: width .3s ease;
+}
+.nav__menu a:hover::after { width: 100%; }
+.nav__cta {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 11px 18px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background .25s;
+}
+.nav__cta:hover { background: var(--green-deep); }
+.nav__cta .dot {
+  width: 6px; height: 6px;
+  background: var(--green);
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 var(--green);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(45,190,108,0.7); }
+  50% { box-shadow: 0 0 0 6px rgba(45,190,108,0); }
+}
+
+/* ============ HERO ============ */
+.hero {
+  padding: 160px 36px 80px;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.hero__eyebrow {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-bottom: 56px;
+}
+.hero__eyebrow .marker { width: 24px; height: 1px; background: var(--ink); }
+
+.hero__title {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(48px, 9vw, 144px);
+  line-height: 0.94;
+  letter-spacing: -0.04em;
+  margin-bottom: 48px;
+  max-width: 1400px;
+}
+.hero__title em {
+  font-style: italic;
+  font-variation-settings: "SOFT" 100;
+  color: var(--green-deep);
+}
+.hero__title .underline {
+  position: relative;
+  display: inline-block;
+}
+.hero__title .underline::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  bottom: 0.08em;
+  height: 4px;
+  background: var(--rust);
+}
+
+.hero__row {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 80px;
+  align-items: end;
+  margin-top: auto;
+}
+.hero__lede {
+  font-family: var(--serif);
+  font-size: clamp(20px, 1.6vw, 26px);
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  max-width: 600px;
+  font-weight: 300;
+}
+.hero__metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  border-top: 1px solid var(--line-strong);
+  padding-top: 28px;
+}
+.metric__num {
+  font-family: var(--serif);
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 8px;
+}
+.metric__num sup {
+  font-size: 22px;
+  font-family: var(--mono);
+  font-weight: 400;
+  vertical-align: top;
+  margin-left: 2px;
+}
+.metric__label {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* Ticker at the very bottom */
+.hero__ticker {
+  position: absolute;
+  bottom: 24px; left: 36px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  display: flex;
+  gap: 32px;
+}
+.hero__ticker .v { color: var(--green-deep); font-weight: 500; }
+
+/* ============ MARQUEE ============ */
+.marquee {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 18px 0;
+  background: var(--paper-2);
+  overflow: hidden;
+  position: relative;
+}
+.marquee__track {
+  display: flex;
+  gap: 64px;
+  white-space: nowrap;
+  animation: scroll 40s linear infinite;
+  width: fit-content;
+}
+.marquee__item {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 24px;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 64px;
+}
+.marquee__item::after {
+  content: '✦';
+  color: var(--green);
+  font-style: normal;
+  font-size: 14px;
+}
+@keyframes scroll {
+  to { transform: translateX(-50%); }
+}
+
+/* ============ DIFFERENT SECTION ============ */
+.different {
+  padding: 140px 36px;
+  border-bottom: 1px solid var(--line);
+}
+.section__header {
+  display: grid;
+  grid-template-columns: 80px 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 96px;
+  align-items: start;
+}
+.section__num {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+  padding-top: 12px;
+  letter-spacing: 0.1em;
+}
+.section__kicker {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+.section__title {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(36px, 5vw, 68px);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+.section__title em {
+  font-style: italic;
+  color: var(--green-deep);
+}
+.section__intro {
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.5;
+  font-weight: 300;
+  color: var(--ink);
+  max-width: 480px;
+  padding-top: 16px;
+}
+
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-top: 1px solid var(--line-strong);
+}
+.pillar {
+  padding: 36px 24px 36px 0;
+  border-right: 1px solid var(--line);
+  position: relative;
+  transition: background .3s;
+}
+.pillar:last-child { border-right: none; }
+.pillar:hover { background: var(--paper-2); padding-left: 24px; padding-right: 0; }
+.pillar__index {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 80px;
+  display: flex;
+  justify-content: space-between;
+}
+.pillar__symbol {
+  width: 36px; height: 36px;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin-bottom: 24px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 18px;
+}
+.pillar__title {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+.pillar__body {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: 280px;
+}
+
+/* ============ PRODUCT SPLIT ============ */
+.products {
+  padding: 0;
+  border-bottom: 1px solid var(--line);
+}
+.product {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 70vh;
+  border-bottom: 1px solid var(--line);
+}
+.product:last-child { border-bottom: none; }
+.product__media {
+  padding: 80px 60px;
+  background: var(--ink);
+  color: var(--paper);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.product__media--rd {
+  background: linear-gradient(180deg, #0E1410 0%, #142e1e 100%);
+}
+.product__content {
+  padding: 80px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.product__tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--green-deep);
+  margin-bottom: 24px;
+}
+.product__name {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(40px, 4.5vw, 64px);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 28px;
+}
+.product__name em { font-style: italic; }
+.product__desc {
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: 460px;
+  margin-bottom: 36px;
+}
+.product__link {
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--ink);
+  width: fit-content;
+  transition: gap .25s;
+}
+.product__link:hover { gap: 20px; }
+
+/* Product media visualizations */
+.viz-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(244,240,232,0.55);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.viz-label .pill {
+  border: 1px solid rgba(244,240,232,0.25);
+  padding: 4px 10px;
+  border-radius: 100px;
+  color: var(--green);
+}
+
+.viz-bars {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 8px;
+  height: 240px;
+  align-items: end;
+  margin: auto 0;
+}
+.viz-bars .bar {
+  background: rgba(244,240,232,0.12);
+  border-radius: 2px 2px 0 0;
+  position: relative;
+  animation: barRise 1.4s cubic-bezier(.2,.7,.2,1) both;
+}
+.viz-bars .bar.hot { background: var(--green); }
+.viz-bars .bar.hot::before {
+  content: attr(data-v);
+  position: absolute;
+  top: -22px; left: 0; right: 0;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--paper);
+}
+@keyframes barRise {
+  from { transform: scaleY(0); transform-origin: bottom; }
+  to { transform: scaleY(1); transform-origin: bottom; }
+}
+
+.viz-line {
+  height: 240px;
+  margin: auto 0;
+  position: relative;
+}
+.viz-line svg { width: 100%; height: 100%; overflow: visible; }
+.viz-line .grid line { stroke: rgba(244,240,232,0.08); stroke-width: 1; }
+.viz-line .axis { stroke: rgba(244,240,232,0.25); stroke-width: 1; }
+.viz-line .path {
+  fill: none;
+  stroke: var(--green);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawLine 2.4s ease-out forwards;
+}
+.viz-line .baseline {
+  fill: none;
+  stroke: rgba(244,240,232,0.35);
+  stroke-width: 1;
+  stroke-dasharray: 4 4;
+}
+.viz-line .area {
+  fill: url(#grad);
+  opacity: 0;
+  animation: fadeIn 1s ease-out 1.2s forwards;
+}
+.viz-line .dot {
+  fill: var(--green);
+  opacity: 0;
+  animation: fadeIn .5s ease-out forwards;
+}
+.viz-line .label-end {
+  fill: var(--paper);
+  font-family: var(--mono);
+  font-size: 11px;
+}
+@keyframes drawLine { to { stroke-dashoffset: 0; } }
+@keyframes fadeIn { to { opacity: 1; } }
+
+/* ============ JOURNEY ============ */
+.journey {
+  padding: 140px 36px;
+  border-bottom: 1px solid var(--line);
+  background: var(--ink);
+  color: var(--paper);
+}
+.journey .section__num,
+.journey .section__kicker,
+.journey .section__intro { color: rgba(244,240,232,0.55); }
+.journey .section__title { color: var(--paper); }
+.journey .section__title em { color: var(--green); }
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(244,240,232,0.15);
+}
+.timeline__item {
+  padding: 48px 32px 48px 0;
+  border-right: 1px solid rgba(244,240,232,0.15);
+  position: relative;
+}
+.timeline__item:last-child { border-right: none; }
+.timeline__item::before {
+  content: '';
+  position: absolute;
+  top: -5px; left: 0;
+  width: 9px; height: 9px;
+  background: var(--green);
+  border-radius: 50%;
+}
+.timeline__year {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--green);
+  margin-bottom: 24px;
+}
+.timeline__title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  color: var(--paper);
+}
+.timeline__body {
+  font-size: 15px;
+  line-height: 1.55;
+  color: rgba(244,240,232,0.7);
+  max-width: 360px;
+}
+
+/* ============ SUSTAINABILITY CALLOUT ============ */
+.sustain {
+  padding: 140px 36px;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+.sustain__inner {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: center;
+}
+.sustain__quote {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(28px, 3.4vw, 48px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+.sustain__quote em {
+  font-style: italic;
+  color: var(--green-deep);
+}
+.sustain__quote .accent {
+  text-decoration: underline;
+  text-decoration-color: var(--rust);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+.sustain__panel {
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  padding: 40px;
+  position: relative;
+}
+.sustain__panel::before {
+  content: 'CO₂';
+  position: absolute;
+  top: -14px; left: 32px;
+  background: var(--paper);
+  padding: 4px 12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  border: 1px solid var(--line);
+}
+.sustain__stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+}
+.sustain__stat:last-child { border-bottom: none; }
+.sustain__stat .label {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+.sustain__stat .value {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+.sustain__stat .value.green { color: var(--green-deep); }
+.sustain__stat .value sup {
+  font-family: var(--mono);
+  font-size: 14px;
+  vertical-align: top;
+}
+
+/* ============ BRANDS ============ */
+.brands {
+  padding: 100px 36px;
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+.brands__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 56px;
+}
+.brands__head h3 {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+  max-width: 500px;
+}
+.brands__head h3 em { font-style: italic; color: var(--green-deep); }
+.brands__head .meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+.brands__grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.brand-cell {
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  aspect-ratio: 2/1;
+  display: grid;
+  place-items: center;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 18px;
+  color: var(--muted);
+  transition: all .3s;
+  letter-spacing: -0.01em;
+}
+.brand-cell:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* ============ FOOTER ============ */
+.footer {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 100px 36px 36px;
+}
+.footer__main {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 60px;
+  padding-bottom: 80px;
+  border-bottom: 1px solid rgba(244,240,232,0.15);
+}
+.footer__logo {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 40px;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+.footer__logo em { font-style: italic; color: var(--green); }
+.footer__tag {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 17px;
+  color: rgba(244,240,232,0.6);
+  max-width: 320px;
+  margin-bottom: 32px;
+}
+.footer__col h4 {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(244,240,232,0.5);
+  margin-bottom: 20px;
+}
+.footer__col ul { list-style: none; }
+.footer__col li { margin-bottom: 10px; }
+.footer__col a {
+  color: var(--paper);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color .2s;
+}
+.footer__col a:hover { color: var(--green); }
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 32px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: rgba(244,240,232,0.5);
+}
+.footer__bottom .social { display: flex; gap: 24px; }
+.footer__bottom a { color: inherit; text-decoration: none; }
+.footer__bottom a:hover { color: var(--green); }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 980px) {
+  .nav { padding: 16px 20px; }
+  .nav__menu { display: none; }
+  .hero { padding: 120px 20px 60px; }
+  .hero__row { grid-template-columns: 1fr; gap: 48px; }
+  .hero__metrics { grid-template-columns: 1fr 1fr; }
+  .section__header { grid-template-columns: 1fr; gap: 24px; margin-bottom: 56px; }
+  .pillars { grid-template-columns: 1fr 1fr; }
+  .pillar { border-bottom: 1px solid var(--line); padding: 28px 16px; }
+  .product { grid-template-columns: 1fr; }
+  .product__media, .product__content { padding: 48px 24px; }
+  .different, .journey, .sustain, .brands { padding: 80px 20px; }
+  .timeline { grid-template-columns: 1fr; }
+  .timeline__item { border-right: none; border-bottom: 1px solid rgba(244,240,232,0.15); }
+  .sustain__inner { grid-template-columns: 1fr; gap: 48px; }
+  .brands__grid { grid-template-columns: repeat(3, 1fr); }
+  .footer__main { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .hero__ticker { display: none; }
+}
+@media (max-width: 540px) {
+  .hero__metrics { grid-template-columns: 1fr; }
+  .pillars { grid-template-columns: 1fr; }
+  .brands__grid { grid-template-columns: repeat(2, 1fr); }
+  .footer__main { grid-template-columns: 1fr; }
+}
+
+/* Reveal on scroll */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .8s ease, transform .8s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav__logo" style="text-decoration: none; color: var(--ink);">Curation <span>Media</span></a>
+  <ul class="nav__menu">
+    <li><a href="advertisers.html">Advertisers</a></li>
+    <li><a href="publishers.html">Publishers</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="patent.html">Patent</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a class="nav__cta" href="contact.html">
+    <span class="dot"></span>
+    Talk to us
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__eyebrow">
+    <span class="marker"></span>
+    <span>A supply-side platform</span>
+    <span>—</span>
+    <span>Est. via Duration Media</span>
+  </div>
+
+  <h1 class="hero__title">
+    The path to <em>premium inventory</em><br/>
+    is shorter than the <span class="underline">industry told you.</span>
+  </h1>
+
+  <div class="hero__row">
+    <p class="hero__lede">
+      Curation Media is a new kind of SSP — built to curate viewable, attentive, sustainable ad inventory. Higher RPM for publishers. Higher performance for buyers. Nothing in between.
+    </p>
+    <div class="hero__metrics">
+      <div class="metric">
+        <div class="metric__num">90<sup>%</sup></div>
+        <div class="metric__label">Viewability via VaaS®<br/>measured by IAS / DV</div>
+      </div>
+      <div class="metric">
+        <div class="metric__num">1×</div>
+        <div class="metric__label">Bid request to reach<br/>unique, curated supply</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__ticker">
+    <span>LIVE</span>
+    <span>Viewability <span class="v">+ 41.2%</span></span>
+    <span>Attention <span class="v">+ 28.7%</span></span>
+    <span>CO₂ per impression <span class="v">- 63.4%</span></span>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee__track">
+    <span class="marquee__item">Viewable</span>
+    <span class="marquee__item">Attentive</span>
+    <span class="marquee__item">Sustainable</span>
+    <span class="marquee__item">Efficient</span>
+    <span class="marquee__item">Performant</span>
+    <span class="marquee__item">Curated</span>
+    <span class="marquee__item">Viewable</span>
+    <span class="marquee__item">Attentive</span>
+    <span class="marquee__item">Sustainable</span>
+    <span class="marquee__item">Efficient</span>
+    <span class="marquee__item">Performant</span>
+    <span class="marquee__item">Curated</span>
+  </div>
+</div>
+
+<!-- DIFFERENT -->
+<section class="different">
+  <div class="section__header">
+    <div class="section__num">01 / DIFFERENT</div>
+    <h2 class="section__title">A new kind of SSP, built for <em>quality</em>, not volume.</h2>
+    <p class="section__intro">
+      Curation Media specializes in curating premium, high-performing ad inventory — replacing waste, duplication and reselling with a direct, transparent path.
+    </p>
+  </div>
+
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar__index"><span>01</span><span>/05</span></div>
+      <div class="pillar__symbol">◉</div>
+      <h3 class="pillar__title">Viewable</h3>
+      <p class="pillar__body">VaaS® (Viewability-as-a-Service®) reaches 90 %+ viewability when measured by IAS or DoubleVerify.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar__index"><span>02</span><span>/05</span></div>
+      <div class="pillar__symbol">⌖</div>
+      <h3 class="pillar__title">Attentive</h3>
+      <p class="pillar__body">Industry-leading attention scores when measured by Lumen and Adelaide.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar__index"><span>03</span><span>/05</span></div>
+      <div class="pillar__symbol">⌘</div>
+      <h3 class="pillar__title">Sustainable</h3>
+      <p class="pillar__body">Significantly reduce carbon emissions by eliminating data waste from unnecessary bid requests.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar__index"><span>04</span><span>/05</span></div>
+      <div class="pillar__symbol">→</div>
+      <h3 class="pillar__title">Efficient</h3>
+      <p class="pillar__body">A direct and efficient path to quality inventory — no intermediaries, no reselling.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar__index"><span>05</span><span>/05</span></div>
+      <div class="pillar__symbol">▲</div>
+      <h3 class="pillar__title">Performant</h3>
+      <p class="pillar__body">Curated inventory consistently outperforms on CTR, conversion rate, and return on ad spend.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="publishers">
+
+  <!-- Refresh Detect -->
+  <div class="product">
+    <div class="product__media product__media--rd">
+      <div class="viz-label">
+        <span>Refresh Detect™ — RPM Uplift</span>
+        <span class="pill">+ live</span>
+      </div>
+      <div class="viz-line">
+        <svg viewBox="0 0 500 240" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="grad" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stop-color="#2DBE6C" stop-opacity="0.45"/>
+              <stop offset="100%" stop-color="#2DBE6C" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <g class="grid">
+            <line x1="0" y1="48" x2="500" y2="48"/>
+            <line x1="0" y1="96" x2="500" y2="96"/>
+            <line x1="0" y1="144" x2="500" y2="144"/>
+            <line x1="0" y1="192" x2="500" y2="192"/>
+          </g>
+          <line class="baseline" x1="0" y1="170" x2="500" y2="170"/>
+          <text x="6" y="164" class="label-end" style="fill:rgba(244,240,232,0.55)">baseline</text>
+          <path class="area" d="M0,170 L40,165 L80,158 L120,150 L160,138 L200,128 L240,114 L280,96 L320,82 L360,68 L400,54 L440,42 L500,30 L500,240 L0,240 Z"/>
+          <path class="path" d="M0,170 L40,165 L80,158 L120,150 L160,138 L200,128 L240,114 L280,96 L320,82 L360,68 L400,54 L440,42 L500,30"/>
+          <circle class="dot" cx="500" cy="30" r="5" style="animation-delay:2.4s"/>
+          <text x="430" y="22" class="label-end">+ 38%</text>
+        </svg>
+      </div>
+      <div class="viz-label">
+        <span>Q1</span><span>Q2</span><span>Q3</span><span>Q4</span>
+      </div>
+    </div>
+    <div class="product__content">
+      <div class="product__tag">For Publishers — 02 / Products</div>
+      <h2 class="product__name">Refresh <em>Detect™</em></h2>
+      <p class="product__desc">
+        Guaranteed RPM uplift for publishers. Real-time intelligence detects refresh patterns and creates incremental, highly-viewable inventory — giving buyers high-performance ad units and giving you new revenue you weren't capturing.
+      </p>
+      <a href="publishers.html" class="product__link">Learn more — for publishers →</a>
+    </div>
+  </div>
+
+  <!-- For Advertisers -->
+  <div class="product" id="advertisers">
+    <div class="product__content">
+      <div class="product__tag">For Advertisers — 03 / Products</div>
+      <h2 class="product__name">Unique, highly <em>viewable</em> inventory</h2>
+      <p class="product__desc">
+        Buyers connect directly to curated, premium supply with a single bid request. No reselling. No data waste. Just inventory that performs against viewability, attention and outcome metrics.
+      </p>
+      <a href="advertisers.html" class="product__link">Learn more — for advertisers →</a>
+    </div>
+    <div class="product__media">
+      <div class="viz-label">
+        <span>Performance vs. Industry Avg.</span>
+        <span class="pill">indexed</span>
+      </div>
+      <div class="viz-bars">
+        <div class="bar" style="height: 32%; animation-delay: .1s"></div>
+        <div class="bar" style="height: 38%; animation-delay: .15s"></div>
+        <div class="bar" style="height: 28%; animation-delay: .2s"></div>
+        <div class="bar" style="height: 42%; animation-delay: .25s"></div>
+        <div class="bar" style="height: 36%; animation-delay: .3s"></div>
+        <div class="bar hot" style="height: 88%; animation-delay: .35s" data-v="91%"></div>
+        <div class="bar" style="height: 44%; animation-delay: .4s"></div>
+        <div class="bar hot" style="height: 76%; animation-delay: .45s" data-v="78%"></div>
+        <div class="bar" style="height: 30%; animation-delay: .5s"></div>
+        <div class="bar hot" style="height: 92%; animation-delay: .55s" data-v="95%"></div>
+        <div class="bar" style="height: 40%; animation-delay: .6s"></div>
+        <div class="bar" style="height: 34%; animation-delay: .65s"></div>
+      </div>
+      <div class="viz-label">
+        <span>Industry SSPs</span>
+        <span style="color: var(--green)">●  Curation Media</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section class="journey" id="journey">
+  <div class="section__header">
+    <div class="section__num">04 / JOURNEY</div>
+    <h2 class="section__title">From real-time intelligence to <em>full-stack</em> curation.</h2>
+    <p class="section__intro">
+      We didn't arrive at curation by trend. We arrived by spending seven years building the underlying ad-tech that makes it actually work.
+    </p>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline__item">
+      <div class="timeline__year">2017 — 2024 / Origin</div>
+      <h3 class="timeline__title">Seven years of <em>Duration Media</em>.</h3>
+      <p class="timeline__body">
+        Real-time intelligence created incremental, highly viewable ad impressions and enabled publishers to offer high-performance inventory to buyers.
+      </p>
+    </div>
+    <div class="timeline__item">
+      <div class="timeline__year">2024 / Today</div>
+      <h3 class="timeline__title">The market shifted toward <em>direct supply</em>.</h3>
+      <p class="timeline__body">
+        Buyers began demanding a direct, efficient, transparent path to premium inventory — without wasteful duplication, reselling, or unnecessary intermediaries.
+      </p>
+    </div>
+    <div class="timeline__item">
+      <div class="timeline__year">2025 / Now</div>
+      <h3 class="timeline__title">Launch of the <em>Curation Media SSP</em>.</h3>
+      <p class="timeline__body">
+        Buyers access high-quality, unique inventory through a single bid request, while publishers generate incremental revenue via Refresh Detect™.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SUSTAINABILITY -->
+<section class="sustain">
+  <div class="section__header" style="margin-bottom: 80px;">
+    <div class="section__num">05 / GREEN MEDIA</div>
+    <h2 class="section__title">Built for the <em>green</em> media economy.</h2>
+    <p class="section__intro">
+      Aligned to the Global Media Sustainability Framework — every impression we curate is measurable, transparent, and accountable.
+    </p>
+  </div>
+
+  <div class="sustain__inner">
+    <p class="sustain__quote">
+      Curation Media is a supply-side platform built to align with the <span class="accent">Global Media Sustainability Framework</span>. Every impression we curate is measurable, transparent, and <em>accountable to global standards</em> for reducing carbon emissions in media.
+    </p>
+    <div class="sustain__panel">
+      <div class="sustain__stat">
+        <span class="label">Reduction in unnecessary bid requests</span>
+        <span class="value green">- 63<sup>%</sup></span>
+      </div>
+      <div class="sustain__stat">
+        <span class="label">Viewability vs. industry avg.</span>
+        <span class="value">90<sup>%+</sup></span>
+      </div>
+      <div class="sustain__stat">
+        <span class="label">Path-length to premium supply</span>
+        <span class="value">1 hop</span>
+      </div>
+      <div class="sustain__stat">
+        <span class="label">Standards alignment</span>
+        <span class="value" style="font-size: 18px; font-family: var(--mono);">Ad Net Zero · IAB Tech Lab</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<section class="brands">
+  <div class="brands__head">
+    <h3>Brands that buy our <em>quality</em> ad impressions.</h3>
+    <span class="meta">Partners · Across 32 + advertisers</span>
+  </div>
+  <div class="brands__grid">
+    <div class="brand-cell">Disney</div>
+    <div class="brand-cell">Comcast</div>
+    <div class="brand-cell">American Express</div>
+    <div class="brand-cell">Verizon</div>
+    <div class="brand-cell">Marriott</div>
+    <div class="brand-cell">L'Oréal</div>
+    <div class="brand-cell">Toyota</div>
+    <div class="brand-cell">Samsung</div>
+    <div class="brand-cell">Visit Dubai</div>
+    <div class="brand-cell">P & G</div>
+    <div class="brand-cell">Unilever</div>
+    <div class="brand-cell">+ 21 more</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__main">
+    <div>
+      <div class="footer__logo">Curation <em>Media</em></div>
+      <p class="footer__tag">Only quality ad inventory. Higher performance. Sustainable results.</p>
+      <a class="nav__cta" href="contact.html" style="background: var(--green); color: var(--ink);">
+        Start a conversation →
+      </a>
+    </div>
+
+    <div class="footer__col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="advertisers.html">For Advertisers</a></li>
+        <li><a href="publishers.html">For Publishers</a></li>
+        <li><a href="publishers.html">Refresh Detect™</a></li>
+        <li><a href="advertisers.html">VaaS® Platform</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="patent.html">Patent</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="privacy-policy.html">Privacy policy</a></li>
+        <li><a href="terms.html">Terms of service</a></li>
+        <li><a href="patent.html">Patent information</a></li>
+        <li><a href="#">Ad Net Zero</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <span>© 2025 Curation Media SSP — All rights reserved.</span>
+    <div class="social">
+      <a href="https://www.linkedin.com/in/andybatkin" target="_blank">LinkedIn</a>
+      <a href="https://x.com/durationmedia" target="_blank">X</a>
+      <a href="#">Facebook</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Reveal on scroll
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
