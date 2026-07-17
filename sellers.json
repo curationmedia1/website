@@ -2840,6 +2840,24 @@
       "name": "Planet Sport",
       "domain": "football365.com",
       "seller_type": "PUBLISHER"
+    },
+    {
+      "seller_id": "23353575515",
+      "name": "PhoneArena",
+      "domain": "phonearena.com",
+      "seller_type": "PUBLISHER"
+    },
+    {
+      "seller_id": "23355585854",
+      "name": "Grupo Folha",
+      "domain": "folha.uol.com.br",
+      "seller_type": "PUBLISHER"
+    },
+    {
+      "seller_id": "23361226639",
+      "name": "Meteored",
+      "domain": "tiempo.com",
+      "seller_type": "PUBLISHER"
     }
   ]
 }
