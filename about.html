@@ -184,26 +184,26 @@
 }
 .leader__avatar {
   aspect-ratio: 1;
-  background: linear-gradient(135deg, var(--green) 0%, var(--green-deep) 100%);
   position: relative;
-  display: grid;
-  place-items: center;
   overflow: hidden;
+  /* gradient shows only if the image is slow or fails to load */
+  background: linear-gradient(135deg, var(--green) 0%, var(--green-deep) 100%);
+  border: 1px solid rgba(244,240,232,0.18);
 }
-.leader__avatar::before {
-  content: 'AB';
-  font-family: var(--serif);
-  font-weight: 300;
-  font-size: 140px;
-  color: var(--paper);
-  letter-spacing: -0.06em;
+.leader__avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
 }
+/* hairline warm edge so the photo's dark background doesn't melt into the card */
 .leader__avatar::after {
   content: '';
   position: absolute;
   inset: 0;
-  background-image:
-    repeating-linear-gradient(45deg, transparent 0, transparent 40px, rgba(255,255,255,0.04) 40px, rgba(255,255,255,0.04) 41px);
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(244,240,232,0.10);
 }
 .leader__name {
   font-family: var(--serif);
@@ -298,7 +298,7 @@
   .principle { border-right: none; padding: 32px 0; }
   .principle:nth-child(even) { padding-left: 0; }
   .leader__card { grid-template-columns: 1fr; padding: 32px; gap: 32px; }
-  .leader__avatar::before { font-size: 80px; }
+  .leader__avatar { max-width: 280px; }
   .leader__name { font-size: 36px; }
   .standards__grid { grid-template-columns: 1fr; }
 }
@@ -453,7 +453,21 @@
   </div>
 
   <div class="leader__card">
-    <div class="leader__avatar"></div>
+    <div class="leader__avatar">
+      <picture>
+        <source
+          type="image/webp"
+          srcset="images/abatkin-400.webp 400w, images/abatkin-800.webp 800w"
+          sizes="(max-width: 900px) 280px, 460px">
+        <img
+          src="images/abatkin-800.jpg"
+          srcset="images/abatkin-400.jpg 400w, images/abatkin-800.jpg 800w"
+          sizes="(max-width: 900px) 280px, 460px"
+          width="800" height="800"
+          loading="lazy" decoding="async"
+          alt="Andy Batkin, Co-Founder and Chief Executive Officer of Curation Media">
+      </picture>
+    </div>
     <div>
       <div class="leader__role">Co-Founder &amp; CEO</div>
       <h3 class="leader__name">Andy Batkin</h3>
@@ -461,7 +475,7 @@
         Co-Founder and Chief Executive Officer of Curation Media. Operator-led, bootstrapped, focused on growing the business through long-term relationships with publishers and advertisers — not transactional revenue.
       </p>
       <p class="leader__bio">
-        Eight-plus years building Duration Media's real-time viewability and attention technology. Today, leading commercial strategy for the next-generation curated SSP.
+        Eight-plus years building Duration Media's real-time viewability and attention technology. Today, leading the company as it builds the next-generation curated SSP.
       </p>
       <div class="leader__links">
         <a href="https://www.linkedin.com/in/andybatkin" target="_blank">LinkedIn ↗</a>

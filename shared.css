@@ -1,5 +1,5 @@
 /* ============================================
-   CURATION MEDIA / SHARED DESIGN SYSTEM
+   CURATION MEDIA — SHARED DESIGN SYSTEM
    ============================================ */
 
 :root {
@@ -62,7 +62,7 @@ body::before {
   text-decoration: none;
   color: var(--ink);
 }
-.nav__logo em { font-style: italic; color: var(--green); }
+.nav__logo span { font-style: italic; font-weight: 400; color: var(--green); }
 .nav__menu {
   display: flex;
   gap: 36px;
@@ -145,7 +145,7 @@ body::before {
   max-width: 1300px;
 }
 .page-head__title em {
-  font-style: normal;
+  font-style: italic;
   color: var(--green-deep);
 }
 .page-head__title .underline {
@@ -208,7 +208,7 @@ body::before {
   letter-spacing: -0.03em;
 }
 .section__title em {
-  font-style: normal;
+  font-style: italic;
   color: var(--green-deep);
 }
 .section__intro {
@@ -245,7 +245,7 @@ body::before {
 .footer__logo em { font-style: italic; color: var(--green); }
 .footer__tag {
   font-family: var(--serif);
-  font-style: normal;
+  font-style: italic;
   font-size: 17px;
   color: rgba(244,240,232,0.6);
   max-width: 320px;
@@ -305,7 +305,7 @@ body::before {
   margin: 0 auto 56px;
   max-width: 1100px;
 }
-.cta-strip__title em { font-style: normal; color: var(--green-deep); }
+.cta-strip__title em { font-style: italic; color: var(--green-deep); }
 .cta-strip__btn {
   display: inline-flex;
   align-items: center;
