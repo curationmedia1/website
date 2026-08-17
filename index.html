@@ -678,29 +678,60 @@ body::before {
   letter-spacing: 0.14em;
   color: var(--muted);
 }
-.brands__grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
+.brands__marquee {
+  position: relative;
   border-top: 1px solid var(--line);
-  border-left: 1px solid var(--line);
-}
-.brand-cell {
-  border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  aspect-ratio: 2/1;
+  padding: 40px 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+}
+.brands__track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: brand-scroll 44s linear infinite;
+}
+.brands__marquee:hover .brands__track { animation-play-state: paused; }
+@keyframes brand-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.brand-mark {
+  flex: 0 0 auto;
   display: grid;
   place-items: center;
+  height: 46px;
+  padding: 0 46px;
   font-family: var(--serif);
   font-style: italic;
   font-weight: 300;
-  font-size: 18px;
-  color: var(--muted);
-  transition: all .3s;
+  font-size: 20px;
   letter-spacing: -0.01em;
+  color: var(--muted);
+  white-space: nowrap;
+  transition: color .3s;
 }
-.brand-cell:hover {
-  background: var(--ink);
-  color: var(--paper);
+.brand-mark:hover { color: var(--ink); }
+/* If/when you drop real logo files in, they inherit this treatment automatically */
+.brand-mark img {
+  height: 100%;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: .55;
+  transition: filter .3s, opacity .3s;
+}
+.brand-mark:hover img { filter: grayscale(0); opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .brands__track {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
 }
 
 /* ============ FOOTER ============ */
@@ -779,14 +810,16 @@ body::before {
   .timeline { grid-template-columns: 1fr; }
   .timeline__item { border-right: none; border-bottom: 1px solid rgba(244,240,232,0.15); }
   .sustain__inner { grid-template-columns: 1fr; gap: 48px; }
-  .brands__grid { grid-template-columns: repeat(3, 1fr); }
+  .brands__marquee { padding: 32px 0; }
+  .brand-mark { padding: 0 34px; font-size: 19px; }
   .footer__main { grid-template-columns: 1fr 1fr; gap: 40px; }
   .hero__ticker { display: none; }
 }
 @media (max-width: 540px) {
   .hero__metrics { grid-template-columns: 1fr; }
   .pillars { grid-template-columns: 1fr; }
-  .brands__grid { grid-template-columns: repeat(2, 1fr); }
+  .brand-mark { padding: 0 26px; font-size: 18px; height: 38px; }
+  .brands__track { animation-duration: 30s; }
   .footer__main { grid-template-columns: 1fr; }
 }
 
@@ -819,7 +852,7 @@ body::before {
     <span class="marker"></span>
     <span>A supply-side platform</span>
     <span>—</span>
-    <span>Est. via Duration Media</span>
+    <span>Powered by Duration Media</span>
   </div>
 
   <h1 class="hero__title">
@@ -834,7 +867,7 @@ body::before {
     <div class="hero__metrics">
       <div class="metric">
         <div class="metric__num">90<sup>%</sup></div>
-        <div class="metric__label">Viewability via VaaS®<br/>measured by IAS / DV</div>
+        <div class="metric__label">Viewability<br/>measured by IAS / DV</div>
       </div>
       <div class="metric">
         <div class="metric__num">1×</div>
@@ -844,7 +877,6 @@ body::before {
   </div>
 
   <div class="hero__ticker">
-    <span>LIVE</span>
     <span>Viewability <span class="v">+ 41.2%</span></span>
     <span>Attention <span class="v">+ 28.7%</span></span>
     <span>CO₂ per impression <span class="v">- 63.4%</span></span>
@@ -1070,21 +1102,36 @@ body::before {
 <section class="brands">
   <div class="brands__head">
     <h3>Brands that buy our <em>quality</em> ad impressions.</h3>
-    <span class="meta">Partners · Across 32 + advertisers</span>
   </div>
-  <div class="brands__grid">
-    <div class="brand-cell">Disney</div>
-    <div class="brand-cell">Comcast</div>
-    <div class="brand-cell">American Express</div>
-    <div class="brand-cell">Verizon</div>
-    <div class="brand-cell">Marriott</div>
-    <div class="brand-cell">L'Oréal</div>
-    <div class="brand-cell">Toyota</div>
-    <div class="brand-cell">Samsung</div>
-    <div class="brand-cell">Visit Dubai</div>
-    <div class="brand-cell">P & G</div>
-    <div class="brand-cell">Unilever</div>
-    <div class="brand-cell">+ 21 more</div>
+  <!-- Marquee: the track holds TWO identical copies of the list so the loop is seamless.
+       If you add or remove a brand, change it in BOTH copies. -->
+  <div class="brands__marquee" aria-label="Brands that buy our ad impressions">
+    <div class="brands__track">
+      <!-- copy 1 -->
+      <div class="brand-mark">Disney</div>
+      <div class="brand-mark">Comcast</div>
+      <div class="brand-mark">American Express</div>
+      <div class="brand-mark">Verizon</div>
+      <div class="brand-mark">Marriott</div>
+      <div class="brand-mark">L'Oréal</div>
+      <div class="brand-mark">Toyota</div>
+      <div class="brand-mark">Samsung</div>
+      <div class="brand-mark">Visit Dubai</div>
+      <div class="brand-mark">P &amp; G</div>
+      <div class="brand-mark">Unilever</div>
+      <!-- copy 2 (duplicate, hidden from screen readers) -->
+      <div class="brand-mark" aria-hidden="true">Disney</div>
+      <div class="brand-mark" aria-hidden="true">Comcast</div>
+      <div class="brand-mark" aria-hidden="true">American Express</div>
+      <div class="brand-mark" aria-hidden="true">Verizon</div>
+      <div class="brand-mark" aria-hidden="true">Marriott</div>
+      <div class="brand-mark" aria-hidden="true">L'Oréal</div>
+      <div class="brand-mark" aria-hidden="true">Toyota</div>
+      <div class="brand-mark" aria-hidden="true">Samsung</div>
+      <div class="brand-mark" aria-hidden="true">Visit Dubai</div>
+      <div class="brand-mark" aria-hidden="true">P &amp; G</div>
+      <div class="brand-mark" aria-hidden="true">Unilever</div>
+    </div>
   </div>
 </section>
 
