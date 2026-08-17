@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curation Media × PubConnections — Guaranteed Q4 Revenue for Publishers</title>
+<meta name="description" content="An exclusive program for PubConnections publishers. Refresh Detect™ and the APS Highly Viewable PMP activate with one tag — no dev work — and Curation Media guarantees your incremental Q4 revenue based on your own September data." />
+<link rel="canonical" href="https://curationmedia.net/pubconnections.html" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://curationmedia.net/pubconnections.html" />
+<meta property="og:title" content="Curation Media × PubConnections — Guaranteed Q4 Revenue for Publishers" />
+<meta property="og:description" content="Two products. One tag. A guaranteed incremental Q4 revenue number, built from your own site's September performance." />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7H2GKTMKZS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7H2GKTMKZS');
+</script>
+
+<style>
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:        #080B10;
+    --white:      #F2F4F8;
+    --signal:     #00E5A0;
+    --signal-dim: rgba(0,229,160,0.10);
+    --signal-mid: rgba(0,229,160,0.25);
+    --accent:     #1A3CFF;
+    --accent-dim: rgba(26,60,255,0.10);
+    --aps:        #FF9900;
+    --aps-dim:    rgba(255,153,0,0.12);
+    --muted:      rgba(242,244,248,0.45);
+    --rule:       rgba(242,244,248,0.08);
+    --card:       rgba(242,244,248,0.04);
+    --card-border:rgba(242,244,248,0.09);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--ink);
+    color: var(--white);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(8,11,16,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+    padding: 16px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .nav-logo {
+    text-decoration: none;
+    font-family: 'Manrope', sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.3px;
+  }
+
+  .nav-logo span { color: var(--signal); }
+
+  .nav-sep { color: var(--muted); font-size: 18px; font-weight: 300; }
+
+  .nav-partner {
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--muted);
+    letter-spacing: -0.2px;
+  }
+
+  .nav-cta {
+    background: var(--signal);
+    color: var(--ink);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 9px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    letter-spacing: -0.1px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 100px 40px 80px;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Inter', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--signal);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    width: 24px;
+    height: 2px;
+    background: var(--signal);
+  }
+
+  .hero h1 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 54px;
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+
+  .hero h1 em { font-style: normal; color: var(--signal); }
+
+  .hero-sub {
+    font-size: 17px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 36px;
+    max-width: 520px;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .hero-stat .num {
+    font-family: 'Manrope', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--signal);
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+
+  .hero-stat .label {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+
+  .hero-divider { width: 1px; height: 36px; background: var(--rule); }
+
+  /* ── FORM CARD ── */
+  .form-card {
+    background: rgba(242,244,248,0.05);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 36px 32px;
+  }
+
+  .form-card h3 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 6px;
+    letter-spacing: -0.3px;
+  }
+
+  .form-card .form-sub {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+
+  .form-group { margin-bottom: 14px; }
+
+  .form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    margin-bottom: 6px;
+    letter-spacing: 0.04em;
+  }
+
+  .form-group input, .form-group select {
+    width: 100%;
+    background: rgba(242,244,248,0.06);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 11px 14px;
+    font-size: 14px;
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .form-group input::placeholder { color: rgba(242,244,248,0.25); }
+  .form-group input:focus, .form-group select:focus { border-color: var(--signal); }
+  .form-group select { cursor: pointer; }
+  .form-group select option { background: #1A1F2E; color: var(--white); }
+
+  .form-submit {
+    width: 100%;
+    background: var(--signal);
+    color: var(--ink);
+    font-size: 15px;
+    font-weight: 700;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Manrope', sans-serif;
+    letter-spacing: -0.2px;
+    margin-top: 8px;
+    transition: opacity 0.2s;
+  }
+
+  .form-submit:hover { opacity: 0.9; }
+
+  .form-submit:disabled { opacity: 0.55; cursor: not-allowed; }
+
+  /* Honeypot — hidden from humans, bots fill it */
+  .honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  /* Form status messages */
+  .form-status {
+    display: none;
+    margin-top: 14px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .form-status.show { display: block; }
+  .form-status strong { display: block; margin-bottom: 3px; font-weight: 700; }
+  .form-status.success {
+    background: var(--signal-dim);
+    border: 1px solid var(--signal-mid);
+    color: var(--signal);
+  }
+  .form-status.error {
+    background: rgba(255,90,90,0.10);
+    border: 1px solid rgba(255,90,90,0.30);
+    color: #FF8A8A;
+  }
+
+  .form-fine {
+    font-size: 11px;
+    color: rgba(242,244,248,0.25);
+    text-align: center;
+    margin-top: 12px;
+    line-height: 1.5;
+  }
+
+  /* ── SECTION WRAPPER ── */
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 40px;
+  }
+
+  .section-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--signal);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-eyebrow::before { content: ''; width: 24px; height: 2px; background: var(--signal); }
+
+  .section h2 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: var(--white);
+    margin-bottom: 16px;
+    line-height: 1.1;
+  }
+
+  .section h2 em { font-style: normal; color: var(--signal); }
+
+  .section-sub {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 600px;
+    line-height: 1.7;
+    margin-bottom: 48px;
+  }
+
+  /* ── RULE ── */
+  .section-rule {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 0;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+  }
+
+  .step {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    padding: 28px 22px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .step:first-child { border-radius: 10px 0 0 10px; }
+  .step:last-child  { border-radius: 0 10px 10px 0; }
+
+  .step::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--signal), transparent);
+  }
+
+  .step-num {
+    font-family: 'Manrope', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--signal-dim);
+    line-height: 1;
+    margin-bottom: 14px;
+  }
+
+  .step h4 { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 8px; line-height: 1.3; }
+  .step p  { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  /* ── PRODUCTS ── */
+  .products {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .product-card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 32px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .product-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+
+  .product-card.refresh::before { background: var(--signal); }
+  .product-card.aps::before    { background: var(--aps); }
+
+  .product-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+  }
+
+  .product-card.refresh .product-tag { background: var(--signal-dim); color: var(--signal); }
+  .product-card.aps    .product-tag { background: var(--aps-dim);    color: var(--aps); }
+
+  .product-card h3 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 10px;
+    letter-spacing: -0.3px;
+  }
+
+  .product-card p { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 20px; }
+
+  .product-stats { display: flex; flex-direction: column; gap: 8px; }
+
+  .product-stat {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .product-stat strong { font-size: 15px; font-weight: 700; color: var(--white); min-width: 80px; }
+
+  /* ── GUARANTEE BAND ── */
+  .guarantee-band {
+    background: linear-gradient(135deg, #051A10 0%, #0A0B20 100%);
+    border-top: 1px solid var(--signal-mid);
+    border-bottom: 1px solid var(--signal-mid);
+    padding: 64px 40px;
+  }
+
+  .guarantee-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .guarantee-inner h2 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .guarantee-inner h2 em { font-style: normal; color: var(--signal); }
+
+  .guarantee-inner p { font-size: 15px; color: var(--muted); line-height: 1.7; }
+
+  .guarantee-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .g-stat {
+    background: rgba(0,229,160,0.06);
+    border: 1px solid var(--signal-mid);
+    border-radius: 10px;
+    padding: 22px 20px;
+    text-align: center;
+  }
+
+  .g-stat .num {
+    font-family: 'Manrope', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--signal);
+    letter-spacing: -1px;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .g-stat .label { font-size: 12px; color: var(--muted); line-height: 1.4; }
+
+  /* ── PATENT STRIP ── */
+  .patent-strip {
+    background: var(--card);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 20px 40px;
+  }
+
+  .patent-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .patent-badge {
+    background: var(--signal-dim);
+    border: 1px solid var(--signal-mid);
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--signal);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+
+  .patent-strip p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  /* ── PUBCONNECTIONS BADGE ── */
+  .pc-band {
+    padding: 48px 40px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .pc-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 24px 28px;
+  }
+
+  .pc-badge {
+    background: white;
+    color: #1A1A2E;
+    font-family: 'Manrope', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    padding: 8px 16px;
+    border-radius: 6px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .pc-inner p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .pc-inner p strong { color: var(--white); }
+
+  /* ── CTA SECTION ── */
+  .cta-section {
+    padding: 80px 40px;
+    text-align: center;
+  }
+
+  .cta-inner { max-width: 600px; margin: 0 auto; }
+
+  .cta-inner h2 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    color: var(--white);
+    margin-bottom: 16px;
+    line-height: 1.1;
+  }
+
+  .cta-inner h2 em { font-style: normal; color: var(--signal); }
+  .cta-inner p { font-size: 15px; color: var(--muted); margin-bottom: 32px; line-height: 1.7; }
+
+  .cta-form {
+    display: flex;
+    gap: 10px;
+    max-width: 480px;
+    margin: 0 auto 12px;
+  }
+
+  .cta-form input {
+    flex: 1;
+    background: rgba(242,244,248,0.06);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 13px 16px;
+    font-size: 14px;
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    outline: none;
+  }
+
+  .cta-form input::placeholder { color: rgba(242,244,248,0.25); }
+  .cta-form input:focus { border-color: var(--signal); }
+
+  .cta-form button {
+    background: var(--signal);
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 700;
+    padding: 13px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Manrope', sans-serif;
+    white-space: nowrap;
+    transition: opacity 0.2s;
+  }
+
+  .cta-form button:hover { opacity: 0.9; }
+  .cta-fine { font-size: 11px; color: rgba(242,244,248,0.2); }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 28px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  footer .left { font-size: 12px; color: rgba(242,244,248,0.25); line-height: 1.6; }
+  footer .right { font-size: 12px; color: rgba(242,244,248,0.25); }
+  footer a { color: rgba(242,244,248,0.45); text-decoration: none; }
+  footer a:hover { color: var(--signal); }
+  footer .links { margin-top: 6px; display: flex; gap: 14px; flex-wrap: wrap; }
+
+  @media (max-width: 768px) {
+    nav { padding: 14px 20px; }
+    .hero { grid-template-columns: 1fr; padding: 60px 20px 40px; gap: 40px; }
+    .hero h1 { font-size: 36px; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .products { grid-template-columns: 1fr; }
+    .guarantee-inner { grid-template-columns: 1fr; gap: 40px; }
+    .section { padding: 60px 20px; }
+    .cta-form { flex-direction: column; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <a href="index.html" class="nav-logo">Curation <span>Media</span></a>
+    <span class="nav-sep">×</span>
+    <div class="nav-partner">PubConnections</div>
+  </div>
+  <a href="#get-started" class="nav-cta">Get Started →</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Exclusive PubConnections Publisher Program</div>
+    <h1>Guaranteed incremental revenue. <em>Zero implementation.</em></h1>
+    <p class="hero-sub">Curation Media's patented real-time viewability technology activates on your site and delivers two powerful revenue streams — Refresh Detect™ and the APS Highly Viewable PMP. Publishers in the PubConnections network get priority access, with a Q4 revenue guarantee backed by September performance data from your own site.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="num">34.3%</div>
+        <div class="label">Average CPM lift<br>Refresh Detect™</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <div class="num">90%+</div>
+        <div class="label">Viewability threshold<br>APS Highly Viewable PMP</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <div class="num">Q4</div>
+        <div class="label">Revenue guaranteed<br>based on September data</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORM CARD -->
+  <div class="form-card" id="get-started">
+    <h3>Claim your spot</h3>
+    <p class="form-sub">Priority access for PubConnections publishers. Limited availability — September activation required to qualify for the Q4 guarantee.</p>
+
+    <form id="pcForm" action="https://formspree.io/f/mbgrzvyy" method="POST">
+      <input type="hidden" name="_subject" value="PubConnections — Q4 Guarantee request">
+      <input type="hidden" name="source" value="PubConnections landing page — hero form">
+
+      <div class="form-group">
+        <label for="pc-name">Your Name</label>
+        <input type="text" id="pc-name" name="name" placeholder="Jane Smith" required autocomplete="name" />
+      </div>
+      <div class="form-group">
+        <label for="pc-email">Work Email</label>
+        <input type="email" id="pc-email" name="email" placeholder="jane@yoursite.com" required autocomplete="email" />
+      </div>
+      <div class="form-group">
+        <label for="pc-url">Website URL</label>
+        <input type="url" id="pc-url" name="website" placeholder="https://yoursite.com" required />
+      </div>
+      <div class="form-group">
+        <label for="pc-pv">Monthly Pageviews</label>
+        <select id="pc-pv" name="monthly_pageviews" required>
+          <option value="" disabled selected>Select range</option>
+          <option>Under 1M</option>
+          <option>1M – 5M</option>
+          <option>5M – 20M</option>
+          <option>20M – 50M</option>
+          <option>50M+</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="pc-aps">Are you on Amazon Publisher Services (APS)?</label>
+        <select id="pc-aps" name="aps_status" required>
+          <option value="" disabled selected>Select one</option>
+          <option>Yes — APS is in my ads.txt</option>
+          <option>No — but I use Prebid</option>
+          <option>Not sure</option>
+        </select>
+      </div>
+
+      <div class="honeypot" aria-hidden="true">
+        <label for="pc-gotcha">Leave this empty</label>
+        <input type="text" name="_gotcha" id="pc-gotcha" tabindex="-1" autocomplete="off">
+      </div>
+
+      <button type="submit" class="form-submit" id="pcSubmit">Get My Q4 Revenue Guarantee →</button>
+
+      <div class="form-status success" id="pcSuccess">
+        <strong>You're on the list</strong>
+        Thanks — Curation Media will be in touch within one business day to schedule your September activation.
+      </div>
+      <div class="form-status error" id="pcError">
+        <strong>Something went wrong</strong>
+        We couldn't send that. Please try again, or email abatkin@durationmedia.net directly.
+      </div>
+
+      <p class="form-fine">No dev work. No long-term commitment. Curation Media will be in touch within one business day. By submitting, you agree to our <a href="privacy-policy.html" style="color:rgba(242,244,248,0.45);">Privacy Policy</a>.</p>
+    </form>
+  </div>
+</div>
+
+<hr class="section-rule">
+
+<!-- HOW IT WORKS -->
+<div class="section">
+  <div class="section-eyebrow">How it works</div>
+  <h2>September is the test. <em>Q4 is the guarantee.</em></h2>
+  <p class="section-sub">We activate on your site via Google Tag Manager — or through the APS Connections Marketplace if you're on APS. From there, everything is automatic.</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h4>Simple activation — no dev work</h4>
+      <p>Place one JavaScript tag via Google Tag Manager, or click Get Started under Curation Media in the APS Connections Marketplace. Minutes, not days.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h4>We measure AND monetize in September</h4>
+      <p>Refresh Detect™ identifies your highly viewable impressions in real time and monetizes every eligible refresh where our demand beats your Prebid floor by 10%+. You earn incremental revenue immediately.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h4>September data is your proof</h4>
+      <p>Real CPM floors, real viewability rates, real takeover rates — from your actual site, your actual traffic. No estimates or averages from other publishers.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <h4>We guarantee your Q4 revenue</h4>
+      <p>Based on September's performance data, Curation Media delivers a guaranteed incremental revenue number for Q4 — the highest-revenue quarter of the year. A real number. A real guarantee.</p>
+    </div>
+  </div>
+</div>
+
+<hr class="section-rule">
+
+<!-- PRODUCTS -->
+<div class="section">
+  <div class="section-eyebrow">Two products. One tag. All upside.</div>
+  <h2>Refresh Detect™ + <em>APS Highly Viewable PMP</em></h2>
+  <p class="section-sub">Every publisher who activates gets both products automatically — each targeting a different revenue opportunity on your existing inventory.</p>
+
+  <div class="products">
+    <div class="product-card refresh">
+      <div class="product-tag">Refresh Detect™</div>
+      <h3>CPM Optimization on Every Refresh</h3>
+      <p>Refresh Detect™ measures viewability on every refreshed display impression in real time, reads your live Prebid floor, and only takes over when Curation Media demand can meet or exceed that floor by 10% or more. If it can't beat your floor — your refresh continues untouched. All upside, no risk.</p>
+      <div class="product-stats">
+        <div class="product-stat"><strong>34.3%</strong> Average CPM lift</div>
+        <div class="product-stat"><strong>10%</strong> Minimum floor guarantee</div>
+        <div class="product-stat"><strong>Any</strong> Prebid publisher eligible</div>
+      </div>
+    </div>
+    <div class="product-card aps">
+      <div class="product-tag">APS Highly Viewable PMP</div>
+      <h3>Premium APS Demand on Your Best Inventory</h3>
+      <p>For publishers on Amazon Publisher Services, BuyViewIQ identifies impressions that are 90%+ in view and fires a real-time signal with the GPID to APS — before the bid. APS packages those impressions into a Highly Viewable PMP Deal ID, giving premium buyers the intelligence to bid on your best inventory at higher CPMs. Automatically.</p>
+      <div class="product-stats">
+        <div class="product-stat"><strong>90%+</strong> Viewability threshold</div>
+        <div class="product-stat"><strong>Pre-bid</strong> Signal timing</div>
+        <div class="product-stat"><strong>APS</strong> Required (ads.txt)</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REFRESH DETECT DESCRIPTION -->
+<hr class="section-rule">
+<div class="section">
+  <div class="section-eyebrow">About Refresh Detect™</div>
+  <h2>How <em>Refresh Detect™</em> works</h2>
+  <p class="section-sub">The full technical description — exactly what happens on your page, on every refresh cycle.</p>
+
+  <div style="background:var(--card); border:1px solid var(--card-border); border-radius:12px; padding:36px 40px; max-width:820px;">
+    <p style="font-size:15px; color:rgba(242,244,248,0.75); line-height:1.8; margin-bottom:20px;">
+      Refresh Detect™ is a real-time viewability detection and CPM optimization product built on Curation Media's patented technology (U.S. Patent No. 11,195,210). It operates entirely within a publisher's existing display ad setup via a JavaScript tag deployed through Google Tag Manager or the APS Connections Marketplace — requiring no dev work or changes to the publisher's ad stack.
+    </p>
+    <p style="font-size:15px; color:rgba(242,244,248,0.75); line-height:1.8; margin-bottom:20px;">
+      On every display ad refresh cycle, Refresh Detect™ performs three actions simultaneously: it measures the viewability of the refreshing impression in real time using pixel-level detection, identifies the GPID of the qualifying ad slot, and checks whether Curation Media demand can deliver a CPM that meets or exceeds the publisher's floor by 10% or more. If the ad meets Curation Media's viewability standards and demand can meet that threshold, Refresh Detect™ takes over the refresh and delivers the higher-paying impression. If either condition is not met — the impression is not sufficiently viewable, or Curation Media demand cannot beat the floor — Refresh Detect™ takes no action and the publisher's normal refresh continues untouched.
+    </p>
+    <p style="font-size:15px; color:rgba(242,244,248,0.75); line-height:1.8; margin-bottom:0;">
+      The result is purely incremental revenue. Publishers never earn less than their existing floor on any impression. All results are independently verified post-delivery by IAS and DoubleVerify, which measure viewability — the higher CPMs are a direct consequence of buying only highly viewable impressions.
+    </p>
+  </div>
+</div>
+
+<!-- GUARANTEE BAND -->
+<div class="guarantee-band">
+  <div class="guarantee-inner">
+    <div>
+      <div class="section-eyebrow" style="color:var(--signal);">The Q4 Revenue Guarantee</div>
+      <h2>Not a projection.<br><em>A guarantee.</em></h2>
+      <p>We run both programs on your inventory through September — measuring and monetizing real impressions on your actual site. Then, based on that data, Curation Media delivers a guaranteed incremental revenue number for Q4. Built entirely from your own site's performance. And if our demand can't beat your Prebid floor, we don't step in — your existing setup continues untouched.</p>
+    </div>
+    <div class="guarantee-stats">
+      <div class="g-stat">
+        <div class="num">34.3%</div>
+        <div class="label">Average CPM lift<br>on qualifying impressions</div>
+      </div>
+      <div class="g-stat">
+        <div class="num">90%+</div>
+        <div class="label">Viewability threshold<br>for APS PMP signal</div>
+      </div>
+      <div class="g-stat">
+        <div class="num">10%</div>
+        <div class="label">Minimum floor uplift<br>before Refresh Detect™ activates</div>
+      </div>
+      <div class="g-stat">
+        <div class="num">Zero</div>
+        <div class="label">Dev work required<br>GTM or APS activation</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PATENT STRIP -->
+<div class="patent-strip">
+  <div class="patent-inner">
+    <div class="patent-badge">U.S. Patent No. 11,195,210</div>
+    <p>Curation Media is the only company with a patent for real-time, impression-level viewability detection in programmatic advertising. BuyViewIQ and Refresh Detect™ are protected by U.S. Patent No. 11,195,210. Viewability results independently verified by IAS and DoubleVerify.</p>
+  </div>
+</div>
+
+<!-- PUBCONNECTIONS BADGE -->
+<div class="pc-band">
+  <div class="pc-inner">
+    <div class="pc-badge">PubConnections</div>
+    <p><strong>Exclusive to PubConnections publishers.</strong> This program is available to publishers in the PubConnections network as part of the Publisher Visibility Program. Priority activation slots are limited. Publishers who activate in September qualify for the Q4 revenue guarantee. Contact your PubConnections account manager or submit the form above to claim your spot.</p>
+  </div>
+</div>
+
+<!-- CTA SECTION -->
+<div class="cta-section">
+  <div class="cta-inner">
+    <h2>Ready to lock in your <em>Q4 guarantee?</em></h2>
+    <p>Submit your details and Curation Media will be in touch within one business day. September activation is required to qualify for the Q4 revenue guarantee.</p>
+    <form class="cta-form" id="ctaForm" action="https://formspree.io/f/mbgrzvyy" method="POST">
+      <input type="hidden" name="_subject" value="PubConnections — Q4 Guarantee request (footer CTA)">
+      <input type="hidden" name="source" value="PubConnections landing page — footer CTA">
+      <div class="honeypot" aria-hidden="true">
+        <label for="cta-gotcha">Leave this empty</label>
+        <input type="text" name="_gotcha" id="cta-gotcha" tabindex="-1" autocomplete="off">
+      </div>
+      <input type="email" name="email" placeholder="Enter your work email" required autocomplete="email" aria-label="Work email" />
+      <button type="submit" id="ctaSubmit">Get Started →</button>
+    </form>
+    <div class="form-status success" id="ctaSuccess" style="max-width:480px; margin:0 auto 12px; text-align:left;">
+      <strong>You're on the list</strong>
+      Thanks — Curation Media will be in touch within one business day.
+    </div>
+    <div class="form-status error" id="ctaError" style="max-width:480px; margin:0 auto 12px; text-align:left;">
+      <strong>Something went wrong</strong>
+      We couldn't send that. Please try again, or email abatkin@durationmedia.net directly.
+    </div>
+    <p class="cta-fine">No dev work. No long-term commitment. No risk.</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="left">
+    <a href="index.html">curationmedia.net</a>  ·  <a href="patent.html">U.S. Patent No. 11,195,210</a><br>
+    In partnership with the PubConnections Publisher Visibility Program
+    <div class="links">
+      <a href="publishers.html">For Publishers</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy-policy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+  </div>
+  <div class="right">© 2026 Curation Media SSP. All rights reserved.</div>
+</footer>
+
+<script>
+  // Formspree AJAX submission — shared handler for both forms on the page
+  function wireForm(formId, btnId, successId, errorId, sendingLabel, sentLabel, idleLabel) {
+    var form = document.getElementById(formId);
+    if (!form) return;
+    var btn = document.getElementById(btnId);
+    var ok = document.getElementById(successId);
+    var bad = document.getElementById(errorId);
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      ok.classList.remove('show');
+      bad.classList.remove('show');
+      btn.disabled = true;
+      btn.textContent = sendingLabel;
+
+      try {
+        var response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          ok.classList.add('show');
+          form.reset();
+          btn.textContent = sentLabel;
+          ok.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          if (window.gtag) {
+            gtag('event', 'generate_lead', { form_location: formId });
+          }
+          setTimeout(function () {
+            btn.disabled = false;
+            btn.textContent = idleLabel;
+          }, 4000);
+        } else {
+          var result = await response.json().catch(function () { return {}; });
+          if (result.errors && result.errors.length) {
+            bad.lastChild.textContent = ' ' + result.errors.map(function (x) { return x.message; }).join(', ');
+          }
+          bad.classList.add('show');
+          btn.disabled = false;
+          btn.textContent = idleLabel;
+        }
+      } catch (err) {
+        bad.classList.add('show');
+        btn.disabled = false;
+        btn.textContent = idleLabel;
+      }
+    });
+  }
+
+  wireForm('pcForm',  'pcSubmit',  'pcSuccess',  'pcError',
+           'Sending...', 'Request received', 'Get My Q4 Revenue Guarantee \u2192');
+  wireForm('ctaForm', 'ctaSubmit', 'ctaSuccess', 'ctaError',
+           'Sending...', 'Received', 'Get Started \u2192');
+</script>
+
+</body>
+</html>

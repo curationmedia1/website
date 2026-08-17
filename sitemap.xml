@@ -6,37 +6,42 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://curationmedia.net/advertisers/</loc>
+    <loc>https://curationmedia.net/advertisers.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://curationmedia.net/publishers/</loc>
+    <loc>https://curationmedia.net/publishers.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://curationmedia.net/about/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://curationmedia.net/patent-information/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://curationmedia.net/contact/</loc>
+    <loc>https://curationmedia.net/pubconnections.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://curationmedia.net/privacy-policy/</loc>
+    <loc>https://curationmedia.net/contact.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://curationmedia.net/about.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://curationmedia.net/patent.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://curationmedia.net/privacy-policy.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://curationmedia.net/terms/</loc>
+    <loc>https://curationmedia.net/terms.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
