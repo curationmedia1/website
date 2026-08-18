@@ -588,43 +588,23 @@
   .cta-inner h2 em { font-style: normal; color: var(--signal); }
   .cta-inner p { font-size: 15px; color: var(--muted); margin-bottom: 32px; line-height: 1.7; }
 
-  .cta-form {
-    display: flex;
-    gap: 10px;
-    max-width: 480px;
-    margin: 0 auto 12px;
-  }
-
-  .cta-form input {
-    flex: 1;
-    background: rgba(242,244,248,0.06);
-    border: 1px solid var(--card-border);
-    border-radius: 8px;
-    padding: 13px 16px;
-    font-size: 14px;
-    color: var(--white);
-    font-family: 'Inter', sans-serif;
-    outline: none;
-  }
-
-  .cta-form input::placeholder { color: rgba(242,244,248,0.25); }
-  .cta-form input:focus { border-color: var(--signal); }
-
-  .cta-form button {
+  .cta-button {
+    display: inline-block;
     background: var(--signal);
     color: var(--ink);
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 700;
-    padding: 13px 24px;
-    border: none;
+    padding: 15px 32px;
     border-radius: 8px;
-    cursor: pointer;
+    text-decoration: none;
     font-family: 'Manrope', sans-serif;
     white-space: nowrap;
-    transition: opacity 0.2s;
+    margin: 0 auto 14px;
+    transition: opacity 0.2s, transform 0.2s;
   }
 
-  .cta-form button:hover { opacity: 0.9; }
+  .cta-button:hover { opacity: 0.9; transform: translateY(-1px); }
+  .cta-button:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
   .cta-fine { font-size: 11px; color: rgba(242,244,248,0.2); }
 
   /* ── FOOTER ── */
@@ -662,7 +642,6 @@
     .products { grid-template-columns: 1fr; }
     .guarantee-inner { grid-template-columns: 1fr; gap: 40px; }
     .section { padding: 60px 20px; }
-    .cta-form { flex-direction: column; }
     footer { flex-direction: column; gap: 12px; text-align: center; }
   }
 </style>
@@ -899,25 +878,8 @@
 <div class="cta-section">
   <div class="cta-inner">
     <h2>Ready to lock in your <em>Q4 guarantee?</em></h2>
-    <p>Submit your details and Curation Media will be in touch within one business day. September activation is required to qualify for the Q4 revenue guarantee.</p>
-    <form class="cta-form" id="ctaForm" action="https://formspree.io/f/mbgrzvyy" method="POST">
-      <input type="hidden" name="_subject" value="PubConnections — Q4 Guarantee request (footer CTA)">
-      <input type="hidden" name="source" value="PubConnections landing page — footer CTA">
-      <div class="honeypot" aria-hidden="true">
-        <label for="cta-gotcha">Leave this empty</label>
-        <input type="text" name="_gotcha" id="cta-gotcha" tabindex="-1" autocomplete="off">
-      </div>
-      <input type="email" name="email" placeholder="Enter your work email" required autocomplete="email" aria-label="Work email" />
-      <button type="submit" id="ctaSubmit">Get Started →</button>
-    </form>
-    <div class="form-status success" id="ctaSuccess" style="max-width:480px; margin:0 auto 12px; text-align:left;">
-      <strong>You're on the list</strong>
-      Thanks — Curation Media will be in touch within one business day.
-    </div>
-    <div class="form-status error" id="ctaError" style="max-width:480px; margin:0 auto 12px; text-align:left;">
-      <strong>Something went wrong</strong>
-      We couldn't send that. Please try again, or email abatkin@durationmedia.net directly.
-    </div>
+    <p>Tell us about your site and Curation Media will be in touch within one business day. September activation is required to qualify for the Q4 revenue guarantee.</p>
+    <a href="#get-started" class="cta-button" data-scroll-form>Get Started →</a>
     <p class="cta-fine">No dev work. No long-term commitment. No risk.</p>
   </div>
 </div>
@@ -993,8 +955,24 @@
 
   wireForm('pcForm',  'pcSubmit',  'pcSuccess',  'pcError',
            'Sending...', 'Request received', 'Get My Q4 Revenue Guarantee \u2192');
-  wireForm('ctaForm', 'ctaSubmit', 'ctaSuccess', 'ctaError',
-           'Sending...', 'Received', 'Get Started \u2192');
+  // Bottom CTA scrolls to the main form and drops the cursor in the first field
+  document.querySelectorAll('[data-scroll-form]').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      var target = document.getElementById('get-started');
+      if (!target) return;               // let the plain #anchor do the work
+      e.preventDefault();
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+      var first = document.getElementById('pc-name');
+      if (first) {
+        // wait for the smooth scroll to settle before focusing
+        setTimeout(function () { first.focus({ preventScroll: true }); }, reduce ? 0 : 600);
+      }
+      if (window.gtag) {
+        gtag('event', 'select_content', { content_type: 'cta_scroll_to_form' });
+      }
+    });
+  });
 </script>
 
 </body>
