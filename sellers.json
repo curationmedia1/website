@@ -2858,6 +2858,18 @@
       "name": "Meteored",
       "domain": "tiempo.com",
       "seller_type": "PUBLISHER"
+    },
+    {
+      "seller_id": "23363241325",
+      "name": "AMOMEDIA LIMITED",
+      "domain": "amomama.com",
+      "seller_type": "PUBLISHER"
+    },
+    {
+      "seller_id": "23381925021",
+      "name": "Publisher Collective",
+      "domain": "morewords.com",
+      "seller_type": "PUBLISHER"
     }
   ]
 }
