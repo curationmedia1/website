@@ -90,6 +90,27 @@ body::before {
 .nav__menu a.active::after { width: 100%; }
 /* ---- Publishers submenu ---- */
 .nav__menu .has-sub { position: relative; }
+/* the parent label is a trigger, not a link */
+.nav__menu .nav__sub-trigger {
+  color: var(--ink);
+  position: relative;
+  padding-bottom: 4px;
+  cursor: default;
+  -webkit-user-select: none;
+  user-select: none;
+  outline: none;
+}
+.nav__menu .nav__sub-trigger::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 0; height: 1px;
+  background: var(--ink);
+  transition: width .3s ease;
+}
+.nav__menu .has-sub:hover .nav__sub-trigger::after,
+.nav__menu .has-sub:focus-within .nav__sub-trigger::after,
+.nav__menu .nav__sub-trigger.active::after { width: 100%; }
 .nav__menu .nav__sub {
   position: absolute;
   top: calc(100% + 22px);

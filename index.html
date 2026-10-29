@@ -94,6 +94,74 @@ body::before {
   transition: width .3s ease;
 }
 .nav__menu a:hover::after { width: 100%; }
+/* ---- Publishers submenu ---- */
+.nav__menu .has-sub { position: relative; }
+/* the parent label is a trigger, not a link */
+.nav__menu .nav__sub-trigger {
+  color: var(--ink);
+  position: relative;
+  padding-bottom: 4px;
+  cursor: default;
+  -webkit-user-select: none;
+  user-select: none;
+  outline: none;
+}
+.nav__menu .nav__sub-trigger::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 0; height: 1px;
+  background: var(--ink);
+  transition: width .3s ease;
+}
+.nav__menu .has-sub:hover .nav__sub-trigger::after,
+.nav__menu .has-sub:focus-within .nav__sub-trigger::after,
+.nav__menu .nav__sub-trigger.active::after { width: 100%; }
+.nav__menu .nav__sub {
+  position: absolute;
+  top: calc(100% + 22px);
+  left: -18px;
+  min-width: 200px;
+  list-style: none;
+  padding: 8px 0;
+  background: rgba(244, 240, 232, 0.97);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--line);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity .22s ease, transform .22s ease, visibility .22s;
+}
+/* invisible bridge so the menu survives the cursor crossing the gap */
+.nav__menu .nav__sub::before {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  top: -22px;
+  height: 22px;
+}
+.nav__menu .has-sub:hover .nav__sub,
+.nav__menu .has-sub:focus-within .nav__sub {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.nav__menu .nav__sub li { margin: 0; }
+.nav__menu .nav__sub a {
+  display: block;
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  padding-bottom: 10px;
+}
+.nav__menu .nav__sub a::after { display: none; }
+.nav__menu .nav__sub a:hover {
+  background: var(--paper-2);
+  color: var(--green-deep);
+}
+
 .nav__cta {
   justify-self: end;
   display: inline-flex;
@@ -836,7 +904,7 @@ body::before {
   <ul class="nav__menu">
     <li><a href="advertisers.html">Advertisers</a></li>
     <li class="has-sub">
-      <a href="publishers.html">Publishers</a>
+      <span class="nav__sub-trigger" tabindex="0">Publishers</span>
       <ul class="nav__sub">
         <li><a href="publishers.html">Refresh Detect™</a></li>
         <li><a href="buyviewiq.html">BuyViewIQ™</a></li>
